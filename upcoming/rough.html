@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ANNUAL ACTIVITIES</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+		body {
+			background: linear-gradient(45deg, rgb(29, 33, 35) 0%, rgba(11,3,45,1) 100%);
+			background-size: cover;
+			background-position: center;  
+			display: flex;
+			align-items: center;
+			justify-content: center;
+            margin: auto;
+		}
+
+		.container {
+			backdrop-filter: blur(16px) saturate(180%);
+			-webkit-backdrop-filter: blur(16px) saturate(180%);
+			background-color: rgba(17, 25, 40, 0.25);
+			border-radius: 12px;
+			border: 1px solid rgba(255, 255, 255, 0.125);  
+			padding: 38px;  
+			filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+            margin-left: 50px;
+            margin-right: 50px;
+            margin: 50px;
+            width: 300px;
+		}
+        .class1{
+            display:inline-flex;
+			align-items: center;
+			justify-content: center;
+            display: flex;
+            margin-top: 40px;
+        }
+        .class2{
+            display:inline-flex;
+			align-items: center;
+			justify-content: center;
+            display: flex;
+            margin-bottom: 40px;
+        }
+		.wrapper {
+			width: 100%;
+			height: 100%;
+		}
+
+		.banner-image img {
+			width: 100%;
+			border-radius: 12px;
+			border: 1px solid rgba(255,255,255, 0.255);
+		}
+
+		h1 {
+			font-family: 'Righteous', sans-serif;
+			color: rgba(255,255,255,0.98);
+			text-transform: uppercase;
+			font-size: 2.4rem;
+            height: 80px;
+		}
+
+		p {
+			color: #fff;
+			font-family: 'Lato', sans-serif;
+			font-size: 0.8rem;
+			line-height: 150%;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			margin: 10px 0;
+		}
+
+		.button-wrapper {
+			margin-top: 18px;
+		}
+
+		.btn {
+			border: none;
+			padding: 12px 24px;
+			border-radius: 24px;
+			font-size: 0.8rem;  
+			letter-spacing: 2px;  
+			cursor: pointer;
+		}
+		.btn + .btn {
+			margin-left: 10px;
+		}
+
+		.outline {
+			background: transparent;
+			color: rgba(0, 212, 255, 0.9);
+			border: 1px solid rgba(0, 212, 255, 0.6);
+			transition: all .3s ease;
+		}
+
+		.outline:hover {
+			transform: scale(1.125);
+			color: rgba(255, 255, 255, 0.9);
+			border-color: rgba(255, 255, 255, 0.9);
+			transition: all .3s ease;  
+		}
+
+		/* Card Styles */
+		.card {
+			position: relative;
+			width: 200px;
+			height: 250px;
+			border-radius: 14px;
+			z-index: 1;
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+			margin-top: 20px;
+		}
+
+		.bg {
+			position: absolute;
+			top: 5px;
+			left: 5px;
+			width: 190px;
+			height: 240px;
+			z-index: 2;
+			background: rgba(255, 255, 255, .95);
+			backdrop-filter: blur(24px);
+			border-radius: 10px;
+			overflow: hidden;
+			outline: 2px solid white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.bg img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 10px;
+		}
+
+		.blob {
+			position: absolute;
+			z-index: 1;
+			top: 50%;
+			left: 50%;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background-color: #ff0000;
+			opacity: 1;
+			filter: blur(12px);
+			animation: blob-bounce 5s infinite ease;
+		}
+        .info-box {
+            display: none;
+            width: 70%;
+            height: 50%;
+            background: linear-gradient(135deg, #ffffffff, #96acf8, #ffffff);
+            padding: 1px;
+            border-radius: 1.2rem;
+            box-shadow: 0px 1rem 1.5rem -0.9rem #000000e1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            padding-bottom: 40px;
+        }
+        .event{
+            font-family: 'Righteous', sans-serif;
+			color: rgba(8, 4, 53, 0.98);
+			text-transform: uppercase;
+			font-size: 2.4rem;
+            height: 60px;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100px;
+            height: 35px;
+            border-radius: 50%;
+            border: none;
+            background-color: #1c0644;
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        .card2 {
+            font-size: 2rem;
+            font-family: 'Times New Roman', Times, serif;
+            color: #bec4cf;
+            background: linear-gradient(135deg, #0d1120 0%, #3a4b8a 43%, #0d1120 100%);
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+        }
+		@keyframes blob-bounce {
+			0% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+			25% { transform: translate(-100%, -100%) translate3d(100%, 0, 0); }
+			50% { transform: translate(-100%, -100%) translate3d(100%, 100%, 0); }
+			75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
+			100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+		}
+	</style>
+</head>
+<body>
+    <div class="main">
+    <div class="class1">
+        
+        <div class="container">
+    
+            <div class="wrapper">
+                <div class="banner-image">
+                </div>
+                <h1>TREASURE HUNT</h1>
+                <p>Sailing for adventure</p>
+            </div>
+            <div class="card">
+                <div class="blob"></div>
+                <div class="bg">
+                    <img src="image.png" alt="Card Image">
+                </div>
+            </div>
+    
+            <div class="button-wrapper"> 
+                <button class="btn outline" onclick="showInfo5()">DETAILS</button>
+            </div>
+        </div>
+        
+    
+    <div class="info-box" id="infoBox5">
+        <button class="back-button" onclick="hideInfo5()">BACK</button>
+        <h1 class="event">TREASURE HUNT</h1>
+        <div class="card2">
+            “Treasure hunt” one of the most awaited event was organized for first-year students second-year students . The main aim of the event was to drift the students away from their academic routine.    
+        </div>
+    </div>
+    
+    <script>
+        document.getElementsByClassName("info-box").style.display = "none";
+        
+        function showInfo5() {
+            document.getElementById("infoBox5").style.display = "flex";
+            document.getElementById("showButton").classList.add("hidden");
+        }
+        function hideInfo5() {
+            document.getElementById("infoBox5").style.display = "none";
+            document.getElementById("showButton").classList.remove("hidden");
+        }
+        
+    </script>
+</body>
+</html>

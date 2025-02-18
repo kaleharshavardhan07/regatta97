@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            scroll-behavior: smooth;
+            color: white
+        }
+
+        /* Sticky Navbar */
+        .navbar {
+            /* position: fixed; */
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            /* z-index: 1000; */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Card Slider */
+        .slider_container {
+          display: grid;
+          justify-content: space-around;
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          margin-top: 60px; /* Prevent overlap with the navbar */
+          transition: all 1s ease-out, transform 1s ease-out;
+        }
+
+        .slider_wrapper {
+          display: flex;
+          gap: 20px;
+          width: max-content; 
+          animation: slideLoop 20s linear infinite;
+          background-color: #302f2f;
+        }
+
+        .slider_container:hover {
+          transform: scale(1.1) translateY(1.3rem);
+        }
+
+        .slider_wrapper:hover {
+            animation-play-state: paused; /* Pauses the sliding animation when hovered */
+        }
+
+        /* Optionally, you can pause the sliding effect when hovering over individual cards too */
+        .card:hover {
+            animation-play-state: paused; /* Pauses any animations within the card itself */
+        }
+
+        /* Card_container */
+        .card_container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, fr));
+          overflow: hidden;
+          flex-wrap: wrap;
+          width: 100%;
+          justify-content: space-around;
+          align-items: center;
+          min-height: calc(100vh - 60px); /* Adjusting for the navbar height */
+          margin-top: 60px; /* Prevent overlap with the navbar */
+        }
+
+
+        /* Card Section */
+        .card {
+          position: relative;
+          width: 300px;
+          height: 400px;
+          margin: 20px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        /* Card Heading */
+        .card__heading {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white; /* Ensures text is visible */
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adds shadow for better readability */
+          padding: 10px 15px;
+          border-radius: 5px;
+          width: 100%;
+        }
+
+        /* Image inside the card */
+        .card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Ensures image fits well */
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .card svg {
+          width: 48px;
+          fill: #333;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .card:hover {
+          transform: rotate(-5deg) scale(1.2);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          z-index: 10;
+        }
+
+        .card__content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          box-sizing: border-box;
+          background-color: #fff;
+          opacity: 0;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .card:hover .card__content {
+          transform: translate(-50%, -50%) rotate(0deg);
+          opacity: 1;
+        }
+
+        .card__title {
+          margin: 0;
+          font-size: 24px;
+          color: #333;
+          font-weight: 700;
+        }
+
+        .card__description {
+          margin: 10px 0 0;
+          font-size: 14px;
+          color: #777;
+          line-height: 1.4;
+        }
+
+        .card:hover svg {
+          scale: 0;
+          transform: rotate(-45deg);
+        }
+
+        /* Smooth Sliding Effect */
+        /* Left-to-Right Infinite Sliding Effect */
+        @keyframes slideLoop {
+          0% {
+              transform: translateX(0); /* Start from the original position */
+          }
+          10% {
+              transform: translateX(0); /* Cards stay in place for 2-3 seconds */
+          }
+          20% {
+              transform: translateX(-10%); /* Move one card to the left */
+          }
+          30% {
+              transform: translateX(-10%); /* Pause for a bit */
+          }
+          40% {
+              transform: translateX(-20%); /* Move the next card to the left */
+          }
+          50% {
+              transform: translateX(-20%); /* Pause again */
+          }
+          60% {
+              transform: translateX(-30%); /* Continue moving */
+          }
+          70% {
+              transform: translateX(-40%); /* Reset to the initial position for the infinite loop */
+          }
+          80% {
+              transform: translateX(-40%); /* Pause again */
+          }
+          90% {
+              transform: translateX(-50%); /* Continue moving */
+          }
+          100% {
+              transform: translateX(-50%);
+          }
+        }
+
+        /* Duplicate Cards for Infinite Loop */
+        .slider_wrapper::after {
+            content: "";
+            display: flex;
+            width: max-content;
+            flex-shrink: 0;
+        }
+
+        /* Responsive: Adjust Number of Visible Cards */
+        @media (max-width: 1200px) {
+            .card {
+                width: 250px; /* Smaller cards on medium screens */
+            }
+        }
+        
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            opacity: 0.5;
+            color: white;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(0) scale(1.1);
+            opacity: 1;
+        }
+
+        /* Active Section Animation */
+        .active-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: #020202;
+            color: white;
+        }
+
+        .footer a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Events</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#carousel1">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section1">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#carousel2">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section2">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="slider_container">
+      <div class="slider_wrapper">
+        <div class="card" id="kayaking">
+            <div class="bg"></div>
+            <div class="blob"></div>
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="kayaking.jpg" alt="Card Image">
+            <div class="card__heading">Kayaking</div>
+            <div class="card__content">
+              <p class="card__title">Kayaking
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="shell_formation">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="img2.jpg" alt="">
+            <div class="card__heading">Shell Formation</div>
+            <div class="card__content">
+              <p class="card__title">Shell Formation
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="punt_formation">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="pf1-min.jpg" alt="">
+            <div class="card__heading">Punt Formation</div>
+            <div class="card__content">
+              <p class="card__title">Punt Formation
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="telematches">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="tm1-min.jpg" alt="">
+            <div class="card__heading">Telematches</div>
+            <div class="card__content">
+              <p class="card__title">Telematches
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="mashaal_dance">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="md1-min.jpg" alt="">
+            <div class="card__heading">Mashaal Dance</div>
+            <div class="card__content">
+              <p class="card__title">Mashaal Dance
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+        
+        <!-- Duplicate set of Cards -->
+        <div class="card" id="kayaking">
+            <div class="bg"></div>
+            <div class="blob"></div>
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="kayaking.jpg" alt="Card Image">
+            <div class="card__heading">Kayaking</div>
+            <div class="card__content">
+              <p class="card__title">Kayaking
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="shell_formation">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="img2.jpg" alt="">
+            <div class="card__heading">Shell Formation</div>
+            <div class="card__content">
+              <p class="card__title">Shell Formation
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="punt_formation">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="pf1-min.jpg" alt="">
+            <div class="card__heading">Punt Formation</div>
+            <div class="card__content">
+              <p class="card__title">Punt Formation
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="telematches">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="tm1-min.jpg" alt="">
+            <div class="card__heading">Telematches</div>
+            <div class="card__content">
+              <p class="card__title">Telematches
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+
+        <div class="card" id="mashaal_dance">
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+            <img src="md1-min.jpg" alt="">
+            <div class="card__heading">Mashaal Dance</div>
+            <div class="card__content">
+              <p class="card__title">Mashaal Dance
+              </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Contact Section -->
+    <!-- <section id="section2">
+        <div class="container text-center">
+            <h2>Contact Us</h2>
+            <p>Get in touch for more creative designs and services.</p>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <!-- <div class="footer">
+        <a href="https://www.instagram.com/coepregatta/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/results?search_query=regatta+coep" target="_blank"><i class="fab fa-youtube"></i></a>
+        <p>&copy; 2025 96th Regatta - Sailing the Horizon. All Rights Reserved.</p>
+    </div> -->
+
+</body>
+</html>

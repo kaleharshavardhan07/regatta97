@@ -1,0 +1,316 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      @font-face {
+      font-family: 'e-Ukraine Head';
+      src: url('https://sealzi.com/e-Ukraine Head/e-UkraineHead-Regular.otf') format('opentype');
+  }
+  
+  * {
+      margin: 0;
+      padding: 0;
+      font-family: 'e-Ukraine Head', serif;
+  }
+  
+  body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      background: #161616;
+      min-height: 100vh;
+  }
+  
+  a, i {
+    color: white;
+  }
+  
+  section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #0057B7 50%, #FFD700 90%);
+      clip-path: circle(30% at right 70%);
+  }
+  
+  section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, #0057B7 0%, #FFD700 30%);
+      clip-path: circle(20% at 10% 10%);
+  }
+  
+  .container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 40px 0;
+  }
+  
+  .container .card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      background: rgba(255, 255, 255, 0.05);
+      margin: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(10px);
+  }
+
+
+  .container .card:hover {
+    /* border: 2px solid white; */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    /* box-shadow: 0 0 30px rgba(47, 70, 75, 0.8), 0 0 60px rgba(0, 212, 255, 0.6); */
+    transform: scale(1.05);
+    transition: 0.3s ease-in-out;
+}
+
+.container .card .content {
+    transition: 0.3s ease-in-out;
+}
+
+.container .card:hover .content {
+    filter: brightness(1.3);
+}
+  
+  .container .card .content {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      transition: 0.5s;
+  }
+  
+  .container .card:hover .content {
+      transform: translateY(-20px);
+  }
+  
+  .container .card .content .imgBx {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+  }
+  
+  .container .card .content .imgBx img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  
+  .container .card .content .contentBx {
+    padding: 0 24px;  
+  }
+  
+  .container .card .content .contentBx h3 {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      font-size: 28px;
+      text-align: center;
+      margin: 20px 0 10px;
+      line-height: 1.1em;
+  }
+  
+  .container .card .content .contentBx span {
+    display: block;
+    color: #fff;
+      font-size: 12px;
+      font-weight: 300;
+    letter-spacing: 1px;
+      text-transform: initial;
+    text-align: center;
+    text-wrap: balance;
+  }
+  
+  .container .card .sci {
+      position: absolute;
+      bottom: 40px;
+      display: flex;
+  }
+  
+  .container .card .sci li {
+      list-style: none;
+      margin: 0 6px;
+      transform: translateY(40px);
+      transition: 0.4s;
+      opacity: 0;
+  }
+  
+  .container .card:hover .sci li {
+      transform: translateY(0px);
+      opacity: 1;
+  }
+  
+  .credits {
+    position: fixed;
+    color: white;
+    bottom: 32px;
+  }
+    </style>
+  </head>
+    
+  <body>
+    <p class="credits">Special thanks to  these Sponsors.</p>
+      <section>
+        <h1 style="font-size: larger; color: white;">SPONSORS</h1>
+          <div class="container">
+              <div class="card">
+                  <div class="content">
+                      <div class="imgBx">
+                          <img src="images/img3.jpeg">
+                      </div>
+                      <div class="contentBx">
+                          <!-- <h3>Borscht</h3> -->
+              <!-- <span>Hearty, flavorful, traditional Ukrainian soup</span> -->
+                      </div>
+                  </div>
+                  <ul class="sci">
+                      <li>
+                          <i class="fa fa-wikipedia-w"></i>
+                      </li>
+                      <li>
+                          <a href="https://www.campustimespune.com/" target="__blank" rel="noopener noreferrer"> About </a>
+                      </li>
+                      <li>
+                          <a href="https://www.campustimespune.com/" target="__blank" rel="noopener noreferrer"> them </a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="card">
+                  <div class="content">
+                      <div class="imgBx">
+                          <img src="images/img1.png">
+                      </div>
+                      <div class="contentBx">
+                          <h3>Amphenol</h3>
+              <!-- <span>Iconic Ukrainian national trident symbol</span> -->
+                      </div>
+                  </div>
+                  <ul class="sci">
+                      <li>
+                          <i class="fa fa-wikipedia-w"></i>
+                      </li>
+                      <li>
+                          <a href="https://amphenol.com/" target="__blank" rel="noopener noreferrer"> About </a>
+                      </li>
+                      <li>
+                          <a href="https://amphenol.com/" target="__blank" rel="noopener noreferrer"> them </a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="card">
+                  <div class="content">
+                      <div class="imgBx">
+                          <img src="images/img2.jpeg">
+                      </div>
+                      <div class="contentBx">
+                          <!-- <h3>Cossack</h3> -->
+              <!-- <span>Fierce, free-spirited Ukrainian warrior</span> -->
+                      </div>
+                  </div>
+                  <ul class="sci">
+                      <li>
+                          <i class="fa fa-wikipedia-w"></i>
+                      </li>
+                      <li>
+                          <a href="https://www.br-automation.com/en-in/about-us/customer-magazine/automotion-india/" target="__blank" rel="noopener noreferrer"> About </a>
+                      </li>
+                      <li>
+                          <a href="https://www.br-automation.com/en-in/about-us/customer-magazine/automotion-india/" target="__blank" rel="noopener noreferrer"> them </a>
+                      </li>
+                  </ul>
+              </div>
+
+              <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="images/img4.png">
+                    </div>
+                    <div class="contentBx">
+                        <!-- <h3>Cossack</h3> -->
+            <!-- <span>Fierce, free-spirited Ukrainian warrior</span> -->
+                    </div>
+                </div>
+                <ul class="sci">
+                    <li>
+                        <i class="fa fa-wikipedia-w"></i>
+                    </li>
+                    <li>
+                        <a href="https://www.br-automation.com/en-in/about-us/customer-magazine/automotion-india/" target="__blank" rel="noopener noreferrer"> About </a>
+                    </li>
+                    <li>
+                        <a href="https://www.br-automation.com/en-in/about-us/customer-magazine/automotion-india/" target="__blank" rel="noopener noreferrer"> them </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="images/img5.jpeg">
+                    </div>
+                    <div class="contentBx">
+                        <!-- <h3>Cossack</h3> -->
+            <!-- <span>Fierce, free-spirited Ukrainian warrior</span> -->
+                    </div>
+                </div>
+                <ul class="sci">
+                    <li>
+                        <i class="fa fa-wikipedia-w"></i>
+                    </li>
+                    <li>
+                        <a href="https://youthincmag.com/" target="__blank" rel="noopener noreferrer"> About </a>
+                    </li>
+                    <li>
+                        <a href="https://youthincmag.com/" target="__blank" rel="noopener noreferrer"> them </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="content">
+                    <div class="imgBx">
+                        <img src="images/img6.png">
+                    </div>
+                    <div class="contentBx">
+                        <!-- <h3>Cossack</h3> -->
+            <!-- <span>Fierce, free-spirited Ukrainian warrior</span> -->
+                    </div>
+                </div>
+                <ul class="sci">
+                    <li>
+                        <i class="fa fa-wikipedia-w"></i>
+                    </li>
+                    <li>
+                        <a href="https://sparklingbonds.com/" target="__blank" rel="noopener noreferrer"> About </a>
+                    </li>
+                    <li>
+                        <a href="https://sparklingbonds.com/" target="__blank" rel="noopener noreferrer"> them </a>
+                    </li>
+                </ul>
+            </div>
+          </div>
+      </section>
+    <p class="credits">Special thanks to  these Sponsors.</p>
+  </body>

@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>=Events</title>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+
+body {
+  /* solid background */
+  background: rgb(0,212,255);
+  
+  /* gradient background*/
+  background: linear-gradient(45deg, rgba(0,212,255,1) 0%, rgba(11,3,45,1) 100%);    
+  
+  /* photo background */
+  /* background-image: url(https://images.unsplash.com/photo-1619204715997-1367fe5812f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1889&q=80); */
+  background-image: url(events/bg.png);
+  background-size: cover;
+  background-position: center;  
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;    
+  height: 100vh;  
+}
+
+.container {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);  
+  padding: 38px;  
+  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:center;
+  text-align: center;
+  
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  
+}
+
+
+
+.banner-image {
+  background-image: url('C:\Users\komal\OneDrive\Documents\RegattaII\images\WhatsApp Image 2025-02-03 at 23.56.32_1b57dd23.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255, 0.255)
+}
+
+h1{
+  font-family: 'Righteous', sans-serif;
+  color: rgba(255,255,255,0.98);
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
+p {
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  font-size: 0.8rem;
+  line-height: 150%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.button-wrapper{
+  margin-top: 18px;
+}
+
+.btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-size: 12px;
+  font-size: 0.8rem;  
+  letter-spacing: 2px;  
+  cursor: pointer;
+}
+
+.btn + .btn {
+  margin-left: 10px;
+}
+
+.slider_container {
+          display: grid;
+          justify-content: space-around;
+          overflow: hidden;
+          width: 100%;
+          position: relative;
+          margin-top: 60px; /* Prevent overlap with the navbar */
+          transition: all 1s ease-out, transform 1s ease-out;
+        }
+
+        .slider_wrapper {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          /* width: max-content;  */
+          height: 30rem;
+          animation: slideLoop 20s linear infinite;
+          background-color: #000000;
+          backdrop-filter: blur(16px) saturate(180%);
+          -webkit-backdrop-filter: blur(16px) saturate(180%);
+          filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+          transition: transform 0.2s ease, box-shadow 0.3s ease; */
+        }
+
+        .slider_container:hover {
+          transform: scale(1.1) translateY(1rem);
+        }
+
+        .slider_wrapper:hover {
+            animation-play-state: paused; /* Pauses the sliding animation when hovered */
+        }
+
+        /* Optionally, you can pause the sliding effect when hovering over individual cards too */
+        .card:hover {
+            animation-play-state: paused; /* Pauses any animations within the card itself */
+        }
+
+        /* Card_container */
+        .card_container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, fr));
+          overflow: hidden;
+          flex-wrap: wrap;
+          width: 100%;
+          min-height: calc(100vh - 60px);
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 60px; /* Prevent overlap with the navbar */
+        }
+
+
+        /* Card Section */
+        .card {
+          position: relative;
+          width: 300px;
+          height: 400px;
+          margin: 20px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        /* Card Heading */
+        .card__heading {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: white; /* Ensures text is visible */
+          font-size: 22px;
+          font-weight: bold;
+          text-align: center;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adds shadow for better readability */
+          padding: 10px 15px;
+          border-radius: 5px;
+          width: 100%;
+        }
+
+        /* Image inside the card */
+        .card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; /* Ensures image fits well */
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .card svg {
+          width: 48px;
+          fill: #333;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .card:hover {
+          transform: rotate(-5deg) scale(1.2);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+          z-index: 10;
+        }
+
+        .card__content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+          width: 100%;
+          height: 100%;
+          padding: 20px;
+          box-sizing: border-box;
+          background-color: #171414;
+          opacity: 0;
+          transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+        .card:hover .card__content {
+          transform: translate(-50%, -50%) rotate(0deg);
+          opacity: 1;
+        }
+
+        .card__title {
+          margin: 0;
+          font-size: 24px;
+          color: #847474;
+          font-weight: 700;
+        }
+
+        .card__description {
+          margin: 10px 0 0;
+          font-size: 14px;
+          color: #dbd1d1;
+          line-height: 1.4;
+        }
+
+        .card:hover svg {
+          scale: 0;
+          transform: rotate(-45deg);
+        }
+
+        /* Smooth Sliding Effect */
+        /* Left-to-Right Infinite Sliding Effect */
+        @keyframes slideLoop {
+          0% {
+              transform: translateX(0); /* Start from the original position */
+          }
+          10% {
+              transform: translateX(0); /* Cards stay in place for 2-3 seconds */
+          }
+          20% {
+              transform: translateX(-10%); /* Move one card to the left */
+          }
+          30% {
+              transform: translateX(-10%); /* Pause for a bit */
+          }
+          40% {
+              transform: translateX(-20%); /* Move the next card to the left */
+          }
+          50% {
+              transform: translateX(-20%); /* Pause again */
+          }
+          60% {
+              transform: translateX(-30%); /* Continue moving */
+          }
+          70% {
+              transform: translateX(-40%); /* Reset to the initial position for the infinite loop */
+          }
+          80% {
+              transform: translateX(-40%); /* Pause again */
+          }
+          90% {
+              transform: translateX(-50%); /* Continue moving */
+          }
+          100% {
+              transform: translateX(-50%);
+          }
+        }
+
+        /* Duplicate Cards for Infinite Loop */
+        .slider_wrapper::after {
+            content: "";
+            display: flex;
+            width: max-content;
+            flex-shrink: 0;
+        }
+
+        /* Responsive: Adjust Number of Visible Cards */
+        @media (max-width: 1200px) {
+            .card {
+                width: 250px; /* Smaller cards on medium screens */
+            }
+        }
+        
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+            opacity: 0.5;
+            color: white;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section:hover {
+            transform: translateY(0) scale(1.1);
+            opacity: 1;
+        }
+
+        /* Active Section Animation */
+        .active-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+/* 
+
+.outline {
+  background: transparent;
+  color: rgba(0, 212, 255, 0.9);
+  border: 1px solid rgba(0, 212, 255, 0.6);
+  transition: all .3s ease;
+  
+} */
+
+.outline:hover{
+  transform: scale(1.125);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.9);
+  transition: all .3s ease;  
+}
+
+/* .fill {
+  background: rgba(0, 212, 255, 0.9);
+  color: rgba(255,255,255,0.95);
+  filter: drop-shadow(0);
+  font-weight: bold;
+  transition: all .3s ease; 
+} */
+
+button{
+  background-color: rgb(15, 15, 15);color: rgb(255, 255, 255); 
+  font-size: 1rem; 
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.fill:hover{
+  transform: scale(1.125);  
+  border-color: rgba(255, 255, 255, 0.9);
+  filter: drop-shadow(0 10px 5px rgba(0,0,0,0.125));
+  transition: all .3s ease;    
+}
+	</style>
+</head>
+<body>
+	<!-- <div class="container">
+		<div class="wrapper">
+		  <div class="banner-image"> <img src="images/key.png" alt="TREASURE"> </div>
+		  <h1> TREASURE HUNT</h1>
+		  <p> <br/>
+			Sailing for adventure</p>
+		 </div>
+		 <div class="button-wrapper"> 
+		 <button class="btn outline">DETAILS</button>
+		   <button class="btn fill">BUY NOW</button>
+		 </div>
+		   </div>
+	   </div>
+	    -->
+
+      <h1 style="font-size: xx-large;">Events</h1>
+
+      <div class="slider_container">
+        <div class="slider_wrapper">
+          <div class="card" id="kayaking">
+              <div class="bg"></div>
+              <div class="blob"></div>
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="kayaking.jpg" alt="Card Image">
+              <div class="card__heading">Kayaking</div>
+              <div class="card__content">
+                <p class="card__title">Kayaking
+                </p><p class="card__description">Speedily trimming the waves, Kayaks skim over the water with grace. 
+
+                  With superior speed and agility,
+                  
+                  They glide through the murky rivers ablaze. 
+                  
+                  It’s the unflagging grit of the parade of kayak ballet.</p>
+                  <button style="background-color: rgb(15, 15, 15);color: rgb(255, 255, 255); font-size: 1rem; justify-content: center;display: flex;"><a href="events/kayaking.html">Know More</a></button>
+
+              </div>
+          </div>
+  
+          <div class="card" id="shell_formation">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="img2.jpg" alt="">
+              <div class="card__heading">Shell Formation</div>
+              <div class="card__content">
+                <p class="card__title">Shell Formation
+                </p><p class="card__description">Majestic sculls and shells moving in synch, 
+
+                  Crossing yards within a blink. 
+                  
+                  There’s no earthly way of knowing, 
+                  
+            
+                  
+                  And they’re certainly not showing, 
+                  
+                  Any signs that they are slowing!
+                                  
+                  When we row, we row to win!</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/shell.html">Know More</a></button>
+
+              </div>
+          </div>
+  
+          <div class="card" id="punt_formation">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="images/pf1-min.jpg" alt="">
+              <div class="card__heading">Punt Formation</div>
+              
+              <div class="card__content">
+                <p class="card__title">Punt Formation
+                </p>
+                
+                <p class="card__title">Punt the tiny pearls of lights 
+
+                  gliding softly in the night.
+                  
+                  </p>
+                  <button style="background-color: rgb(82, 78, 78);color: rgb(210, 206, 202);"><a href="events/punt.html">Know More</a></button>
+              </div>
+          </div>
+  
+          <div class="card" id="telematches">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="images/tm1-min.jpg" alt="">
+              <div class="card__heading">Telematches</div>
+              <div class="card__content">
+                <p class="card__title">Telematches
+                </p><p class="card__description">The day fades out, the dusk sets in,
+
+                  but the show is not yet over , there’s more to the evening,
+                  
+                  than what the swift boats did achieve .
+                  
+                  And now the thrill we uncover scunts braving flames and fumes
+                  
+                  watch their tryst with fate 
+                  
+                  on water, through fire 
+                  
+                  into the crepuscule sky this is Valour Incarnate.</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/tele.html">Know More</a></button>
+
+              </div>
+          </div>
+  
+          <div class="card" id="mashaal_dance">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="images/md2-min.jpg" alt="">
+              <div class="card__heading">Mashaal Dance</div>
+              <div class="card__content">
+                <p class="card__title">Mashaal Dance
+                </p><p class="card__description">As darkness ensues, a Mashaal of hope is lit, a still  mirror of Mula river shines in their endless grit.
+
+                  We sway to the rhythm of their flames as they bring down the stars tonight.</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/mashal.html">Know More</a></button>
+
+              </div>
+
+          </div>
+          
+          <!-- Duplicate set of Cards -->
+          <div class="card" id="kayaking">
+              <div class="bg"></div>
+              <div class="blob"></div>
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="kayaking.jpg" alt="Card Image">
+              <div class="card__heading">Kayaking</div>
+              <div class="card__content">
+                <p class="card__title">Kayaking
+                </p><p class="card__description">Speedily trimming the waves, Kayaks skim over the water with grace. 
+
+                  With superior speed and agility,
+                  
+                  They glide through the murky rivers ablaze. 
+                  
+                  It’s the unflagging grit of the parade of kayak ballet.</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/kayaking.html">Know More</a></button>
+
+              </div>
+          </div>
+  
+          <div class="card" id="shell_formation">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="img2.jpg" alt="">
+              <div class="card__heading">Shell Formation</div>
+              <div class="card__content">
+                <p class="card__title">Shell Formation
+                </p><p class="card__description">Majestic sculls and shells moving in synch, 
+
+                  Crossing yards within a blink. 
+                  
+                  There’s no earthly way of knowing, 
+                  
+                  Which direction they are gong,
+                  
+                  Or which way the rivers flowing, 
+                  
+                  For the rowers keep on rowing, 
+                  
+                  And they’re certainly not showing, 
+                  
+                  Any signs that they are slowing!
+                  
+                  Weightless in water, swifter than wind,
+                  
+                  When we row, we row to win!</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/shell.html">Know More</a></button>
+
+              </div>
+          </div>
+  
+          <div class="card" id="punt_formation">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="pf1-min.jpg" alt="">
+              <div class="card__heading">Punt Formation</div>
+              <div class="card__content">
+                <p class="card__title">Punt Formation
+                </p><p class="card__description">Savour the tiny pearls of lights 
+
+                  gliding softly in the night.
+                  
+                  Behold fresh faces in punt tranquil,
+                  
+                   as they limn messages of good will,
+                  
+                  Of god and men,
+                  
+                  Of dreams and emotions. 
+                  
+                  Read the messages of light
+                  
+                  In the moonlight night.</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/punt.html">Know More</a></button>
+
+              </div>
+          </div>
+<!--   
+          <div class="card" id="telematches">
+              
+              <img src="tm1-min.jpg" alt="">
+              <div class="card__heading">Telematches</div>
+              <div class="card__content">
+                <p class="card__title">Telematches
+                </p><p class="card__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+              </div>
+          </div>
+   -->
+          <div class="card" id="mashaal_dance">
+              <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 5H4V19L13.2923 9.70649C13.6828 9.31595 14.3159 9.31591 14.7065 9.70641L20 15.0104V5ZM2 3.9934C2 3.44476 2.45531 3 2.9918 3H21.0082C21.556 3 22 3.44495 22 3.9934V20.0066C22 20.5552 21.5447 21 21.0082 21H2.9918C2.44405 21 2 20.5551 2 20.0066V3.9934ZM8 11C6.89543 11 6 10.1046 6 9C6 7.89543 6.89543 7 8 7C9.10457 7 10 7.89543 10 9C10 10.1046 9.10457 11 8 11Z"></path></svg> -->
+              <img src="images/mashal.JPG" alt="">
+              <div class="card__heading">Mashaal Dance</div>
+              <div class="card__content">
+                <p class="card__title">Mashaal Dance
+                </p><p class="card__description">As darkness ensues, a Mashaal of hope is lit, a still  mirror of Mula river shines in their endless grit.
+
+                  We sway to the rhythm of their flames as they bring down the stars tonight.</p>
+                  <button style="background-color: rgb(82, 78, 78);color: bisque;"><a href="events/mashal.html">Know More</a></button>
+
+              </div>
+          </div>
+        </div>
+      </div>
+
+      
+      
+</body>
+</html>
