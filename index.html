@@ -281,7 +281,18 @@
             </div>
         </div>
         <a href="rough.html">Events</a>
-        <a href="r3.html">Team</a>
+        <a href="#" id="teamLink">Team</a>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var teamLink = document.getElementById("teamLink");
+                var isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+        
+                // Set the href based on the device type
+                teamLink.href = isMobile ? "97thteam/TEAM-MOBILE.html" : "97thteam/TEAM-PC.html";
+            });
+        </script>
+        
         <a href="sponsors/rough.html">Sponsors</a>
     </div>
 
