@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- <script>
+        window.onload = function () {
+            if (window.innerWidth <= 458) {
+                if (!window.location.href.includes("team-mobile.html")) {
+                    window.location.href = "team-mobile.html";
+                }
+            } else {
+                if (!window.location.href.includes("team-pc.html")) {
+                    window.location.href = "team-pc.html";
+                }
+            }
+        };
+    </script> -->
+    <style>
+        
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #171717;
+            /* min-height: 100vh; */
+            height: 100vh;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul i {
+            color: #fff;
+            font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+        }
+
+        ul i:hover {
+            color: #f2709c;
+        }
+
+        section {
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            padding-block: min(20vh, 6rem);
+            text-align: center;
+            width: calc(min(90rem, 90%));
+            margin-inline: auto;
+        }
+
+        section span,
+        section p,
+        section h2,
+        section h3 {
+            letter-spacing: 0.035rem;
+        }
+
+        section p {
+            line-height: 1.6;
+            color: #a3a3a3;
+            max-width: 50rem;
+            margin: 0 auto;
+            font-size: clamp(0.9rem, 0.825rem + 0.3vw, 1.2rem);
+        }
+
+        section .bg-watermark {
+            color: #1f1f1f;
+            font-size: clamp(6rem, 1.3333rem + 14.9333vw, 20rem);
+            font-weight: 800;
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            transform: translatex(-50%) translatey(-15%);
+            user-select: none;
+            letter-spacing: 0.5rem;
+        }
+
+        section span {
+            text-transform: uppercase;
+            display: block;
+            font-size: 1.2rem;
+            color: #a3a3a3;
+        }
+
+        section h2 {
+            font-size: clamp(3.5rem, 3rem + 1.6vw, 5rem);
+            margin-top: -0.625rem;
+            color: #fff;
+        }
+
+        section .cards {
+            margin-top: 7rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+            gap: 2rem;
+        }
+
+        @media screen and (min-width: 51rem) {
+            section .cards {
+                gap: 0;
+                padding-bottom: 2.5rem;
+            }
+        }
+
+        section .cards .card {
+            position: relative;
+            cursor: pointer;
+            max-width: 300px;
+            /* Added max-width */
+            margin: 0 auto;
+            /* Center the card */
+        }
+
+        section .cards .card img {
+            width: 100%;
+            height: 400px;
+            /* Fixed height */
+            object-fit: cover;
+            /* Maintain aspect ratio */
+            filter: grayscale(0%);
+            transition: 0.5s ease;
+        }
+
+        section .cards .card h3,
+        section .cards .card p {
+            text-transform: capitalize;
+        }
+
+        section .cards .card h3 {
+            font-size: clamp(1rem, 0.9167rem + 0.2667vw, 1.25rem);
+            font-weight: 400;
+            color: #f6f6f6;
+        }
+
+        section .cards .card p {
+            font-size: clamp(0.85rem, 0.75rem + 0.32vw, 1.15rem);
+            letter-spacing: 0.12rem;
+            font-weight: 300;
+            max-width: 100%;
+        }
+
+        .social-icons {
+            text-decoration: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a i {
+            text-decoration: none;
+            color: #171717;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: #2b2a2a;
+            transform: translateY(-3px);
+        }
+
+        .social-icons a:hover i {
+            color: white;
+        }
+
+        .card:hover .social-icons {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        section .cards .card::before {
+            position: absolute;
+            content: "";
+            width: 5rem;
+            height: 6.25rem;
+            z-index: 0;
+            transition: 0.3s ease-in-out;
+            background: #f2709c;
+            background: -webkit-linear-gradient(to left, #ff9472, #f2709c);
+            background: linear-gradient(to left, #ff9472, #f2709c);
+            top: -0.375rem;
+            left: -0.375rem;
+        }
+
+        section .cards .card::after {
+            position: absolute;
+            inset: 0;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: #232526;
+            background: -webkit-linear-gradient(to bottom, rgba(65, 67, 69, 0.2), rgba(8, 8, 8, 0.9));
+            background: linear-gradient(to bottom, rgba(65, 67, 69, 0.2), rgba(8, 8, 8, 0.9));
+        }
+
+        section .cards .card:hover img {
+            filter: grayscale(100%);
+        }
+
+        section .cards .card:hover::before {
+            transform: scale(1.03);
+        }
+
+        section .cards .card-content {
+            position: absolute;
+            bottom: 0;
+            z-index: 99;
+            left: 0;
+            color: #fff;
+            width: 100%;
+            padding: 1.875rem 1.25rem;
+            text-align: center;
+        }
+
+        section .cards .card-content ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.625rem;
+            margin-top: 1.25rem;
+        }
+
+        section .cards .card:nth-child(1)::before {
+            top: -0.375rem;
+            left: -0.375rem;
+        }
+
+        @media screen and (min-width: 31.25rem) {
+            section .cards .card:nth-child(2) {
+                transform: translatey(15%);
+            }
+        }
+
+        section .cards .card:nth-child(2)::before {
+            bottom: -0.375rem;
+            left: -0.375rem;
+            top: auto;
+        }
+
+        section .cards .card:nth-child(3)::before {
+            top: -0.375rem;
+            left: -0.375rem;
+        }
+
+        .space {
+            height: 100px;
+        }
+        .glow-button {
+            padding: 12px 24px;
+            background-color: #000;
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+          
+          .glow-button:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.8),
+                        0 0 30px rgba(0, 0, 0, 0.6),
+                        0 0 40px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+          }
+    </style>
+</head>
+
+<body>
+    <section>
+        <span>meet our</span>
+        <h2>Team</h2>
+        <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, praesentium veritatis voluptatibus ut
+            consequuntur quas consequatur omnis id rem obcaecati.</p> -->
+        <span class="bg-watermark">REGATTA SECRETARY</span>
+        <h2 >REGATTA SECRETARY</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="far fa-envelope"></i></a>
+                </div>
+
+                <img src="https://www.coepboatclub.com/assets/committee/regatta_secretary.jpg" alt="Antonia Moore">
+                <div class="card-content">
+                    <h3>OMKAR SINARE</h3>
+                    <p>REGATTA SECRETARY</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>R C C</h2>
+        <span class="bg-watermark">MANAGE</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/omkar_kale.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>OMKAR KALE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/16mandar?igsh=MW5sbnBvam9qa3hhdg=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:khondmm22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Mandar_Khond.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>MANDAR KHOND</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>ACCOUNTS HEADS</h2>
+        <span class="bg-watermark">BUDGET</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/bhagwat.darshan.11?igsh=MXYxaTFrenpmcHJocA=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:bhagwatdarshan15@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Darshan_Bhagwat.JPG" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>DARSHAN BHAGWAT</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="www.instagram.com/tusharbankar712"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:tusharbankar712@gmail.com "><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Tushar_Bankar.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>TUSHAR BANKAR</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+
+        <!-- ################################################### -->
+        <h2>INFRA HEADS</h2>
+        <span class="bg-watermark">STAGE</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:shubhamyelmame21@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/shubham_yelmane.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>SHUBHAM YELMAME</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sarthak_vikhe_patil"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:Sarthakvikhe7@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Sarthak_vikhe.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>SARTHAK VIKHE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+
+        <!-- ################################################### -->
+        <h2>ESM HEADS </h2>
+        <span class="bg-watermark">DJ</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/kale_harshavardhan_07/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:kalehp22.comp@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Harshavardhan_Kale.png" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>HARSHAVARDHAN KALE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/krushna_1129?igsh=MWZwbzVxYTRuejV6cg=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:deshmukhkrushna9850@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Krushna_Deshmukh.jpg" style="filter:grayscale(100)">
+                alt="Travis Lynch" >
+                <div class="card-content">
+                    <h3>KRUSHNA DESHMUKH</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>REFRESHMENT HEADS</h2>
+        <span class="bg-watermark">FOOD</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/tejas_v_jadhav2004/"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:tejasvjadhav2004@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/tejas_jadhav.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>TEJAS JADHAV</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+
+
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/jugnu_077?igsh=NzIxMmQ1eTg1dzBi"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:jugnubaldota@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Jugnu Baldota.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>JUGNU BALDOTA</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+
+            
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_.rohitvir._?igsh=MWFtYjFhZDF4c3o5cQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:virrs22.mech@coeptech."><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Rohit Vir.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>ROHIT VIR</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>PURCHASE HEADS</h2>
+        <span class="bg-watermark">MONEY</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="u.dayyyy_"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:dhanwadeun22.instru@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/UDAY_DHANWADE.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>UDAY DHANAWADE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:gaikwaddhananjay2004@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Dhananjay_Gaikwad.jpeg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>DHANANJAY GAIKWAD</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>SPONSERSHIP HEADS</h2>
+        <span class="bg-watermark">CONTACTS</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/rev_0419?igsh=bDI0cGp5ZXRsM2Zr"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:patarerc22.comp@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Revati_Patare.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>REVATI PATARE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sudhanva_011?igsh=MWFpbHZrdmE3Z2loNQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:sudhanvakale0011@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/sudanava_kale.jpeg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>SUDHANVA KALE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/_.dishadixit._?igsh=Y2szYnZnajQ2cGN1"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:dishad22.instru@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/disha_dixit.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>DISHA DIKSHIT </h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>AOG HEADS</h2>
+        <span class="bg-watermark">ALLUMNI</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/aaryawithdouble.a?igsh=NDRudGU2aXVwejk2"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:aaryask22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Aarya_Kendale.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>AARYA KENDALE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/amey_suradkar03?igsh=MTl2cHRoMmw0bThsNw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:ameysuradkar@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Amey_Suradkar.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>AMAY SURADKAL</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>WEB HEADS</h2>
+        <span class="bg-watermark">CODE</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:komalwaghmore04@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/komal.png" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>KOMAL WAGHMORE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+           
+        </div> 
+        <div class="space">
+
+        </div>
+
+        <a href="./collabrater.html"><button class="glow-button">& Collabrators</button>
+        </a>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>MEDIA HEADS</h2>
+        <span class="bg-watermark">REACH</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/tanishq_kapkar_?igsh=OXd3bm16cG1iemx3"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:kapkaryugakshi10@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Tanishq kapker.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>TANISHQ KAPKAR</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/neha_nn_0206?igsh=djVjeHo1OGt5YW9z"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:nehanale0206@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/NehaNale.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>NEHA NALE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>DESIGN HEADS</h2>
+        <span class="bg-watermark">CANVA</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="omkar_g.neel07"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:omkarneel6762@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Omkar_Neel.jpeg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>OMKAR NEEL</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/SHIVAM KAKADE.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>SHIVAM KAKADE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:siddhijekte@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/SIDDHI_JEKTE.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>SIDDHI JEKTE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>VFX HEADS</h2>
+        <span class="bg-watermark">PHOTO</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:Vipulthete15@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Vipul Thete.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>VIPUL THETE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <!-- <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="far fa-envelope"></i></a>
+                </div> -->
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>YASH RASEKAR</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/filinta_786?igsh=MTN6aHFrdWR0Zm1wYQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="ailto:khanrs22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Ruhail_Khan.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>RUHAIL KHAN</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+           
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>DECOR HEADS</h2>
+        <span class="bg-watermark">CRAFT</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/shraddhaaaaa_05?igsh=MWFrMWIwYmd5c2lhcw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:jawaless23.meta@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/SHRADDHA_JAWALE.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>SHRADDHA JAWALE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/samrudhijawale_08?igsh=MTVtd3prdTNlZ3lmaw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="samruddhijawale2121@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/samrudhi Jawale.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>SAMRUDHI JAWALE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>EVENT HEADS</h2>
+        <span class="bg-watermark">FLOW</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/yashraj_15.02?igsh=MWhmaHN3ZHJkenM3cw=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:yashkawade009@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/yash_k.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>YASH KAWADE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <!-- <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:khaders22.civil@coep.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/rudhi_khade.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>RUDDHI KHADE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="space">
+
+        </div>
+        <!-- ################################################### -->
+        <h2>SAFETY HEADS</h2>
+        <span class="bg-watermark">ODOMOS</span>
+        <div class="cards">
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sumitchavan?igsh=MWRxOGR4eTRoMmQzeQ=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:chavansp22.civil@coeptech.ac.in"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Sumit - Sumit Chavan.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>SUMIT CHAVAN</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/snehal_ghugare1?igsh=MWNhdTBpb29nZm1mcw"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:snehalghugare05@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Snehal Ghugare.jpg" alt="Travis Lynch">
+                <div class="card-content">
+                    <h3>SNEHAL GHUGARE</h3>
+                    <!-- <p>web developer</p> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="cards">
+            <!-- <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:siddhijekte@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/SIDDHI_JEKTE.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>SIDDHI JEKTE</h3>
+
+                </div>
+            </div> -->
+
+        </div>
+        <div class="space">
+
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,1949 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Team</title>
+    <!-- <script>
+        window.onload = function () {
+            if (window.innerWidth <= 458) {
+                if (!window.location.href.includes("TEAM-MOBILE.html")) {
+                    window.location.href = "TEAM-MOBILE.html";
+                }
+            } else {
+                if (!window.location.href.includes("TEAM-PC.html")) {
+                    window.location.href = "TEAM-PC.html";
+                }
+            }
+        };
+    </script> -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #171717;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            position: relative;
+        }
+
+        .slide {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            scroll-snap-align: center;
+            position: relative;
+        }
+
+        .head {
+            position: absolute;
+            top: 150px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.4s ease;
+        }
+
+        .head h2 {
+            font-size: 2rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            gap: 1rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .social-icons a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .class-name {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%) rotate(180deg);
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .name {
+            position: absolute;
+            bottom: 160px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .name h3 {
+
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .member-image-container {
+
+            position: relative;
+            width: 200px;
+            height: 250px;
+            box-shadow: 0 25px 35px rgba(77, 206, 253, 0.4);
+        }
+
+        .member-image {
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10%;
+            transition: transform 0.4s ease;
+
+        }
+
+        .slide.active .head,
+        .slide.active .name {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide.active .social-icons,
+        .slide.active .class-name {
+            opacity: 1;
+        }
+
+        .slide.active .member-image {
+            transform: scale(1.05);
+        }
+
+        /* Progress indicator */
+        .progress-dots {
+            position: fixed;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 20px;
+            left: 45%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /*-- Sign Styles --*/
+        .sign {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sign span {
+            font-size: 3rem;
+            text-align: center;
+            line-height: 1;
+            color: #c6e2ff;
+            -webkit-animation: neon 0.08s ease-in-out infinite alternate;
+            animation: neon 0.08s ease-in-out infinite alternate;
+        }
+
+        /*-- Animation Keyframes --*/
+        @-webkit-keyframes neon {
+            from {
+                text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+            }
+
+            to {
+                text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+            }
+        }
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 6px rgba(202, 228, 225, 0.92), 0 0 30px rgba(202, 228, 225, 0.34), 0 0 12px rgba(30, 132, 242, 0.52), 0 0 21px rgba(30, 132, 242, 0.92), 0 0 34px rgba(30, 132, 242, 0.78), 0 0 54px rgba(30, 132, 242, 0.92);
+            }
+
+            to {
+                text-shadow: 0 0 6px rgba(202, 228, 225, 0.98), 0 0 30px rgba(202, 228, 225, 0.42), 0 0 12px rgba(30, 132, 242, 0.58), 0 0 22px rgba(30, 132, 242, 0.84), 0 0 38px rgba(30, 132, 242, 0.88), 0 0 60px #1e84f2;
+            }
+        }
+
+        .name1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 10px;
+            margin-top: 2px;
+            color: rgb(163, 215, 215);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-container">
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>REGATTA SECRETARY</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="https://www.coepboatclub.com/assets/committee/regatta_secretary.jpg" alt="Team Member"
+                    class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <h3 class="name1">OMKAR SINARE </h3>
+                <!-- <CEnter> <h3 class="name1">KALE</h3></CEnter>  -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>RCC</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/omkar_kale.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <h3 class="name1">OMKAR KALE </h3>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>RCC</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/16mandar?igsh=MW5sbnBvam9qa3hhdg==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:khondmm22.mech@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Mandar_Khond.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <h3 class="name1">MANDAR KHOND </h3>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>ACCOUNTS</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/bhagwat.darshan.11?igsh=MXYxaTFrenpmcHJocA==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:bhagwatdarshan15@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Darshan_Bhagwat.JPG" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">DARSHAN BHAGWAT </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>ACCOUNTS</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="www.instagram.com/tusharbankar712
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:tusharbankar712@gmail.com 
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Tushar_Bankar.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">TUSHAR BANKER </h3>
+                </CEnter>
+
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>ESM-HEAD</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/kale_harshavardhan_07/
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:kalehp22.comp@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Harshavardhan_Kale.png" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <h3 class="name1">HARSHAVARDHAN </h3>
+                <CENTer>
+                    <h3 class="name1">KALE </h3>
+                </CENTer>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>ESM-HEAD</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/krushna_1129?igsh=MWZwbzVxYTRuejV6cg==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:deshmukhkrushna9850@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Krushna_Deshmukh.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">KRUSHNA </h3>
+                </CEnter>
+                <CEnter>
+                    <h3 class="name1">DESHMUKH </h3>
+                </CEnter>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>INFRA-HEAD</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a> -->
+                <a href="mailto:shubhamyelmame21@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/shubham_yelmane.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SHUBHAM </h3>
+                </CEnter>
+                <CEnter>
+                    <h3 class="name1">YELMAME </h3>
+                </CEnter>
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>INFRA-HEAD</span>
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/sarthak_vikhe_patil
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:Sarthakvikhe7@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Sarthak_vikhe.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SARTHAK VIKHE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">VIKHE  </h3></CEnter> -->
+
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>REFRESHMENT</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/tejas_v_jadhav2004/
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:tejasvjadhav2004@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/tejas_jadhav.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">TEJAS JADHAV </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>REFRESHMENT</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/jugnu_077?igsh=NzIxMmQ1eTg1dzBi
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:jugnubaldota@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Jugnu Baldota.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">JUGNU BALDOTA </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>REFRESHMENT</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/_.rohitvir._?igsh=MWFtYjFhZDF4c3o5cQ==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:virrs22.mech@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Rohit Vir.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">ROHIT VIR </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>SPONCERSHIP</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/rev_0419?igsh=bDI0cGp5ZXRsM2Zr" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:patarerc22.comp@coeptech.ac.in" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Revati_Patare.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">REVATI PATARE</h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>SPONCERSHIP</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/_.dishadixit._?igsh=Y2szYnZnajQ2cGN1
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:dishad22.instru@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/disha_dixit.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">DISHA DIKSHIT </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>SPONCERSHIP</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/sudhanva_011?igsh=MWFpbHZrdmE3Z2loNQ==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:sudhanvakale0011@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/sudanava_kale.jpeg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SUDANAVA KALE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>EVENTS</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/yashraj_15.02?igsh=MWhmaHN3ZHJkenM3cw==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:yashkawade009@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/yash_k.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">YASH KAWADE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>EVENTS</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a> -->
+                <a href="mailto:khaders22.civil@coep.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/rudhi_khade.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">RUDDHI KHADE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>AOG HEAD</span>
+                    <!-- <span>HEAD</span> -->
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/amey_suradkar03?igsh=MTl2cHRoMmw0bThsNw==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:ameysuradkar@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Amey_Suradkar.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">AMAY SURADKAL </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>AOG</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/aaryawithdouble.a?igsh=NDRudGU2aXVwejk2
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:aaryask22.mech@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Aarya_Kendale.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">AARYA KENDALE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>PURCHASE</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="u.dayyyy_
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:dhanwadeun22.instru@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/UDAY_DHANWADE.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">UDAY DHANAWADE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>PURCHASE</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a> -->
+                <a href="mailto:gaikwaddhananjay2004@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Dhananjay_Gaikwad.jpeg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">DHANANJAY GAIKWAD </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>WEB</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a> -->
+                <a href="mailto:komalwaghmore04@gmail.com" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/komal.png" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">KOMAL WAGHMORE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>MEDIA</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/tanishq_kapkar_?igsh=OXd3bm16cG1iemx3
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:kapkaryugakshi10@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Tanishq kapker.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">TANISHQ KAPKAR </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>MEDIA</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/neha_nn_0206?igsh=djVjeHo1OGt5YW9z
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:nehanale0206@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/NehaNale.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">NEHA NALE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>DESIGN</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="omkar_g.neel07
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:omkarneel6762@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Omkar_Neel.jpeg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">OMKAR NEEL </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>DESIGN</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/SHIVAM KAKADE.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SHIVAM KAKADE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>DESIGN</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:siddhijekte@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/SIDDHI_JEKTE.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SIDDHI JEKTE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>VFX</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:Vipulthete15@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Vipul Thete.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">VIPUL THETE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>VFX</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/filinta_786?igsh=MTN6aHFrdWR0Zm1wYQ==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:khanrs22.mech@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Ruhail_Khan.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">RUHAIL KHAN </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>VFX</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="#" title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a> -->
+            </div>
+            <div class="member-image-container">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                    alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1"> YASH RASEKAR</h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+
+
+
+
+        <div class="slide">
+            <div class="head">
+                <h2>ESM - HEAD</h2>
+                <div class="sign">
+                    <span>DECOR</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/samrudhijawale_08?igsh=MTVtd3prdTNlZ3lmaw==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="samruddhijawale2121@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/samrudhi Jawale.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SAMRUDHI JAWALE </h3>
+                </CEnter>
+
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>DECOR</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/shraddhaaaaa_05?igsh=MWFrMWIwYmd5c2lhcw==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:jawaless23.meta@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/SHRADDHA_JAWALE.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SHRADDHA JAWALE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>SAFETY</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/sumitchavan?igsh=MWRxOGR4eTRoMmQzeQ==
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:chavansp22.civil@coeptech.ac.in
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Sumit - Sumit Chavan.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SUMIT CHAVAN </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+        <div class="slide">
+            <div class="head">
+                <!-- <h2>ESM - HEAD</h2> -->
+                <div class="sign">
+                    <span>SAFETY</span>
+                    <span>HEAD</span>
+
+                </div>
+
+
+            </div>
+            <div class="social-icons">
+                <!-- <a href="#" title="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                        <rect x="2" y="9" width="4" height="12" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a> -->
+                <a href="https://www.instagram.com/snehal_ghugare1?igsh=MWNhdTBpb29nZm1mcw
+                " title="Instagram">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                    </svg>
+                </a>
+                <a href="mailto:snehalghugare05@gmail.com
+                " title="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                        <polyline points="22,6 12,13 2,6" />
+                    </svg>
+                </a>
+            </div>
+            <div class="member-image-container">
+                <img src="./photo/Snehal Ghugare.jpg" alt="Team Member" class="member-image">
+            </div>
+            <div class="class-name">BATCH OF 2026</div>
+            <div class="name  ">
+                <CEnter>
+                    <h3 class="name1">SNEHAL GHUGARE </h3>
+                </CEnter>
+                <!-- <CEnter> <h3 class="name1">YELMAME  </h3></CEnter> -->
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- Progress dots -->
+        <div class="progress-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            Scroll
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7" />
+            </svg>
+        </div>
+
+        <script>
+            const container = document.querySelector('.slider-container');
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.dot');
+            let lastScrollTop = 0;
+            let scrollTimeout;
+
+            function getMostVisibleSlide() {
+                let maxVisibility = 0;
+                let mostVisibleSlide = null;
+                let mostVisibleIndex = 0;
+
+                slides.forEach((slide, index) => {
+                    const rect = slide.getBoundingClientRect();
+                    const visibility = Math.min(rect.bottom, window.innerHeight) -
+                        Math.max(rect.top, 0);
+
+                    if (visibility > maxVisibility) {
+                        maxVisibility = visibility;
+                        mostVisibleSlide = slide;
+                        mostVisibleIndex = index;
+                    }
+                });
+
+                return { slide: mostVisibleSlide, index: mostVisibleIndex };
+            }
+
+            function updateActiveSlide() {
+                const { slide: currentSlide, index: currentIndex } = getMostVisibleSlide();
+
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+
+                if (currentSlide) {
+                    currentSlide.classList.add('active');
+                }
+            }
+
+            container.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const currentScrollTop = container.scrollTop;
+                    if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                        updateActiveSlide();
+                        lastScrollTop = currentScrollTop;
+                    }
+                }, 50);
+            });
+
+            // Hide scroll indicator after first scroll
+            container.addEventListener('scroll', () => {
+                document.querySelector('.scroll-indicator').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.scroll-indicator').style.display = 'none';
+                }, 500);
+            }, { once: true });
+
+            setTimeout(updateActiveSlide, 100);
+        </script>
+</body>
+
+</html>
