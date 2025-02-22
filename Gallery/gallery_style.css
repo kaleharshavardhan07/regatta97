@@ -1,0 +1,187 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: #212121;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+h1 {
+    font-size: clamp(28px, 5vw, 50px); /* Responsive font size */
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    background: linear-gradient(45deg, #ffcc33, #ff4b2b, #ff416c); /* Gradient effect */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Makes the text take gradient color */
+    text-shadow: 4px 4px 10px rgba(255, 75, 43, 0.5); /* Glowing shadow */
+    margin-bottom: 20px;
+    padding: 10px;
+    display: inline-block;
+    border-bottom: 5px solid rgba(255, 75, 43, 0.7); /* Underline effect */
+}
+
+
+.overflow {
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid {
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0.1px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px 16px;
+    padding: clamp(20px, 4vw, 80px);
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translate3d(0, 0, 0.1px);
+    padding: 20px;
+    border: 1px solid transparent;
+    border-radius: 16px;
+    aspect-ratio: 3/4;
+    background: linear-gradient(0deg, #2239 0% 100%) border-box,
+                linear-gradient(0deg, #223c 0% 100%) padding-box,
+                var(--bg) border-box;
+    background-size: cover, cover;
+    background-repeat: no-repeat;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(239, 233, 233, 0.4);
+}
+
+
+.card:before {
+    --blursize: 25px;
+    content: "";
+    opacity: 0.5;
+    position: absolute;
+    inset: calc(var(--blursize) * -1 * 0.25);
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: contrast(1.2) brightness(0.6) saturate(1.75) blur(var(--blursize));
+    z-index: -1;
+    border-radius: 90px;
+    transform: translate3d(0, calc(var(--blursize) * 0.75), -1px);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.375em;
+    box-shadow: 1px 1px #000c;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px; 
+        padding: 15px;
+    }
+
+    .card {
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px; 
+        padding: 10px;
+    }
+
+    .card {
+        padding: 6px;
+    }
+}
+
+
+/* Lightbox Background */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 99, 99, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Lightbox Content */
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+/* Enlarged Image */
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(255, 253, 253, 0.5);
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Navigation Arrows */
+.navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.prev, .next {
+    font-size: 50px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+body.lightbox-active {
+    overflow: hidden;
+}
+
+body.lightbox-active .page-bg {
+    filter: blur(10px);
+    background-size: cover;
+}
