@@ -3,9 +3,10 @@
   padding: 0;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  -webkit-user-select:auto;
 }
 
-body {
+/* body {
   height: 100vh;
   display: grid;
   place-items: center;
@@ -18,11 +19,28 @@ main {
   width: 100%;
   height: 100%;
   box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+} */
+
+/* Ensure full-page layout */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make body cover full height */
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure main takes up all available space */
+main {
+  flex-grow: 1; /* Push footer to bottom */
+  width: 100%;
+  flex: 1;
 }
 
 .slider {
   touch-action: pan-x pan-y;
-  user-select: none;
+  user-select: none; /* Default */
+  -webkit-user-select: none; /* Safari support */
 }
 
 .item {
@@ -119,6 +137,60 @@ main {
   background-color: rgba(255,255,255,0.3);
 }
 
+/* footer {
+  height: 4rem;
+  background-color: black;
+  color: white;
+  width: 100vw; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.footerclass {
+  font-weight: bold;
+  font-size: 14px;
+} */
+
+
+footer {
+  height: 4rem;
+  background-color: black;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.copyright {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px; /* Space between text and icons */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons .icon {
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+.ig:hover { color: #E4405F; }  /* Instagram */
+.yt:hover { color: #FF0000; }  /* YouTube */
+.li:hover { color: #0077B5; }
 /* Tablet Optimization */
 @media (width > 650px) and (width < 900px) {
   .content {

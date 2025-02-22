@@ -237,6 +237,43 @@ body {
 }
 
 
+footer {
+  height: 4rem;
+  background-color: black;
+  color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.copyright {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px; /* Space between text and icons */
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons .icon {
+  color: white;
+  font-size: 24px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+  transform: scale(1.2);
+}
+
+.ig:hover { color: #E4405F; }  /* Instagram */
+.yt:hover { color: #FF0000; }  /* YouTube */
+.li:hover { color: #0077B5; }
   </style>
 </head>
 <body>
@@ -256,7 +293,7 @@ body {
     <p>Explore the beauty of nature and beyond.</p>
   </div> -->
   <div style="display: flex;align-items: center; justify-content: center;
-  font-size: 5rem;color: rgb(170, 123, 89);font-family:Arial, Helvetica, sans-serif;">Shell Games</div>
+  font-size: 5rem;color: rgb(255, 255, 255);font-family:Arial, Helvetica, sans-serif;">Shell Games</div>
 
   
   <div class="box" style="justify-content: center; display: flex; padding: 7rem; font-size: 1rem; font-family:Arial, Helvetica, sans-serif;">
@@ -314,8 +351,25 @@ body {
     <a class="next">&#10095;</a>
   </div>
 
+  <footer>
+    <div class="footer-container">
+       
+        <div class="social-icons">
+            <a href="https://www.instagram.com/coepregatta/" target="_blank" class="icon ig">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="https://www.youtube.com/@coepregatta4240" target="_blank" class="icon yt">
+                <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+            <a href="https://www.linkedin.com/company/coepregatta/?originalSubdomain=in" target="_blank" class="icon li">
+                <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+        </div>
+    </div>
+  </footer>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
-
   <script>
     // Lightbox functionality
     const lightbox = document.getElementById('lightbox');
