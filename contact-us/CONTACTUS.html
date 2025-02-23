@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+    <script src="../js/scripts.js"></script>
+    <link rel="stylesheet" href="../css/styles.css">
     <script src="./contactus.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/oldAge.css"> -->
+    <link rel="stylesheet" href="css/hamburger.css">
+
     <style>
         body{
-            background-image: url("https://plus.unsplash.com/premium_photo-1661895133905-ed1f28a45b1e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm93aW5nJTIwYm9hdHxlbnwwfHwwfHx8MA%3D%3D");
-            background-size: cover;
+            background-color: black;
         }
+        .out {
+          
+            background-image: url("./background_sunset_kb.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        /* For mobile screens */
+        @media (max-width: 768px) {
+            .out {
+                background-image: url("./2.jpg");
+            }
+        }
+        
         .contact-form {
             background: rgba( 255, 255, 255, 0.2 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -18,9 +40,9 @@ backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
             max-width: 600px;
-            margin: 40px auto;
+            margin: 0px auto;
             padding: 20px;
-           
+            font-size: 17px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
@@ -76,6 +98,43 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
     </style>
 </head>
 <body>
+    <!-- <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#"></a>
+            </div>
+            <div class="burger">
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+            </div>
+            <div class="full-menu">
+                <ul>
+                    <li><a href="./events_new/event.html">Events</a></li>
+                    <li><a href="./97thteam/TEAM-MOBILE.html">Our Team</a></li>
+                    <li><a href="./sponsors/sponsor.html">Our Sponsers</a></li>
+                    <li><a href="./Gallery/gallery.html">Gallery</a></li>
+                    <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            <div class="main_list" id="navbar">
+                <nav>
+                    <ul>
+                    
+                        <li><a href="./events_new/event.html">Events</a></li>
+                        <li><a href="./97thteam/TEAM-PC.html">Our Team</a></li>
+                        <li><a href="./sponsors/sponsor.html">Our Sponsers</a></li>
+                        <li><a href="./Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav> -->
+
+    <section class="out">
     <div class="contact-form">
         <h2>Contact Us</h2>
         <form id="contactForm">
@@ -119,6 +178,75 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             Sorry, there was an error sending your message. Please try again.
         </div>
     </div>
+</section>
+    <footer>
+        <div class="footer-parchment-wrapper">
+            <div class="footContainer grid grid-four-cols">
+                <div class="grid-item coep-regatta-logo">
+                    <p class="footer-heading">COEP REGATTA</p>
+                    <img src="../images/COEP TECH BOAT CLUB HIGH RESOLUTION.png" alt="COEP Boat Club png">
+                </div>
+
+                <div class="grid-item quick-links">
+                    <p class="footer-heading">Quick Links</p>
+                    <ul>
+                        <li> <a href="index.html"><i class="fa-solid fa-angle-right"></i> Home </a> </li>
+                        <li> <a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us </a> </li>
+                        <li> <a href="./97thteam/TEAM-PC.html"><i class="fa-solid fa-angle-right"></i> Committee </a> </li>
+                        <li> <a href="./events_new/event.html"><i class="fa-solid fa-angle-right"></i> Events </a> </li>
+                        <li> <a href="./events_new/event.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
+                        <li> <a href="./Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid-item quick-links">
+                    <p class="footer-heading">Useful Links</p>
+                    <ul>
+                        <li> <a href="sports.html"><i class="fa-solid fa-angle-right"></i> Sports </a> </li>
+                        <li> <a href="sponsors.html"><i class="fa-solid fa-angle-right"></i> Our Sponsors </a> </li>
+                        <li> <a href="jalmaitri.html"><i class="fa-solid fa-angle-right"></i> Jalmaitri Camp </a> </li>
+                        <li> <a href="events.html"><i class="fa-solid fa-angle-right"></i> Contact </a> </li>
+                        <li> <a href="shows.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
+                        <li> <a href="../Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="gird-item contact-us">
+                    <p class="footer-heading">Contact-Us</p>
+                    <p class="address">
+                        <strong>Boat Club Office:</strong> +91 20-25507179
+                        <strong>Email:</strong> boatclub@coeptech.ac.in
+                        COEP Technological University
+                        Shivajinagar, Pune - 411005
+                    </p>
+                    <a href="https://www.google.com/maps/place/COEP+Boat+Club/@18.5310149,73.8537509,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2c0883547926f:0x5fbecadb04a817bf!8m2!3d18.5310149!4d73.8563258!16s%2Fg%2F1tgvc1w5?coh=225992&entry=tts&g_ep=EgoyMDI1MDEwOC4wIPu8ASoASAFQAw%3D%3D"
+                        target="_blank">
+                        <button class="btn" role="button">View on Map</button>
+                    </a>
+                    <a href="contact.html" target="_blank">
+                        <button class="btn" role="button">Contact Us</button>
+                    </a>
+                    <div class="social-footer--icons">
+                        <a href="https://www.youtube.com/@coepregatta4240" target="_blank"
+                            alt="my youtube channel link">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
+                            alt="my instagram profile link">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
+                            alt="my instagram profile link">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="copyright">© COEP TECH REGATTA 2025</p>
+        </div>
+    </footer>
 
     <script>
         const form = document.getElementById('contactForm');
@@ -167,5 +295,26 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             });
         });
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main-logo').classList.add('show-logo');
+            }, 2000);
+        });
+
+
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+    <script src="js/scripts.js"></script>
 </body>
 </html>
