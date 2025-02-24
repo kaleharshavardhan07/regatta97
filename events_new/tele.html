@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Advanced Photo Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     /* * {
       margin: 0;
@@ -236,49 +237,6 @@ body {
     }
 }
 
-/* footer {
-  height: 4rem;
-  background-color: black;
-  color: white;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: static;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1200px;
-}
-
-.footer-container p {
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.social-icons .icon {
-  color: white;
-  font-size: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons .icon:hover {
-  transform: scale(1.2);
-}
-
-.ig:hover { color: #E4405F; } 
-.yt:hover { color: #FF0000; }  
-.li:hover { color: #0077B5; }  */
-
 footer {
   height: 4rem;
   background-color: black;
@@ -313,6 +271,19 @@ footer {
   transform: scale(1.2);
 }
 
+.org{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 100;
+  margin: 2rem 0;
+}
+
+.gap {
+    width: 2rem; 
+}
+
 .ig:hover { color: #E4405F; }  /* Instagram */
 .yt:hover { color: #FF0000; }  /* YouTube */
 .li:hover { color: #0077B5; }  /* LinkedIn */
@@ -338,8 +309,7 @@ footer {
     <p>Explore the beauty of nature and beyond.</p>
   </div> -->
   <div style="display: flex;align-items: center; justify-content: center;
-  font-size: 5rem;color: rgb(0, 0, 0);font-family:Arial, Helvetica, sans-serif;;">Telematches</div>
-
+font-size: 5rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bold; ">Telematches</div>
   
 
 <div class="box" style="justify-content: center; display: flex; padding: 7rem; font-size: 1rem; font-family:Arial, Helvetica, sans-serif;">
@@ -395,19 +365,46 @@ into the crepuscule sky this is Valour Incarnate.
     <a class="next">&#10095;</a>
   </div>
 
+  <div class="box">
+    <div style="display: flex;align-items: center; justify-content: center;
+font-size: 2rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bold;">Organisers</div>
+
+    <div class="org">
+        <span>name1</span>
+        <div class="gap"></div>
+        <i class="fa-solid fa-phone"></i>
+        <span>37483274238</span>
+    </div>
+
+    <div class="org">
+        <span>name2</span>
+        <div class="gap"></div>
+        <i class="fa-solid fa-phone"></i>
+        <span>1234567890</span>
+    </div>
+  </div>
+
+
+<!-- <div style="display: flex;align-items: center; justify-content: center;
+font-size: 3rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bold; ">Organisers</div>
+
+<div class="org">name1 <i class="fa-solid fa-phone"></i>37483274238</div>
+<div class="org">name2</div> -->
+
 <footer>
   <div class="footer-container">
      
       <div class="social-icons">
-          <a href="https://www.instagram.com/coepregatta/" target="_blank" class="icon ig">
-              <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-          <a href="https://www.youtube.com/@coepregatta4240" target="_blank" class="icon yt">
-              <ion-icon name="logo-youtube"></ion-icon>
-          </a>
-          <a href="https://www.linkedin.com/company/coepregatta/?originalSubdomain=in" target="_blank" class="icon li">
-              <ion-icon name="logo-linkedin"></ion-icon>
-          </a>
+        <a href="https://www.instagram.com/coepregatta/" target="_blank" class="icon ig">
+          <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.youtube.com/@coepregatta4240" target="_blank" class="icon yt">
+          <i class="fa-brands fa-youtube"></i>
+      </a>
+      <a href="https://www.linkedin.com/company/coepregatta/?originalSubdomain=in" target="_blank" class="icon li">
+          <i class="fa-brands fa-linkedin"></i>
+      </a>
+      
       </div>
   </div>
 </footer>
