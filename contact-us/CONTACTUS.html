@@ -6,17 +6,46 @@
     <title>Contact Us</title>
     <script src="../js/scripts.js"></script>
     <link rel="stylesheet" href="../css/styles.css">
+    <script></script>
     <script src="./contactus.js"></script>
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
     <!-- <link rel="stylesheet" href="css/oldAge.css"> -->
     <link rel="stylesheet" href="css/hamburger.css">
-
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/hamburger.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     <style>
+        /* html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.main-content {
+    flex: 1;
+}
+footer {
+    position: relative;
+} */
+
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
         body{
-            background-color: black;
+            background-color: rgb(0, 0, 0);
         }
+
         .out {
           
             background-image: url("./background_sunset_kb.jpg");
@@ -24,7 +53,15 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-        
+        .out {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.out {
+    padding-top: 100px; /* Adjust according to navbar height */
+}
+
         /* For mobile screens */
         @media (max-width: 768px) {
             .out {
@@ -39,8 +76,9 @@ backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
+margin: 0px auto 0;
             max-width: 600px;
-            margin: 0px auto;
+            /* margin: 0px auto; */
             padding: 20px;
             font-size: 17px;
             border-radius: 8px;
@@ -95,53 +133,49 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             color: #f44336;
             margin-top: 10px;
         }
-        footer {
-  height: 4rem;
-  background-color: black;
-  color: white;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* padding: 10px 0; */
+        
+footer {
+    background-color: black;
+    color: white; 
+    text-align: center; 
+    padding: 10px 0; 
+    width: 100%; 
+    position: relative;
+    bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 -2px 5px rgba(255, 255, 255, 0.1); 
 }
 
-.copyright {
-  font-weight: bold;
-  font-size: 14px;
-  /* margin-bottom: 5px;  */
+.main-content {
+    flex: 1; 
+}
+@media (max-width: 768px) {
+    footer {
+        font-size: 14px;
+    }
 }
 
-.social-icons {
-  display: flex;
-  gap: 15px;
+.full-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: black; /* Ensure visibility */
+    z-index: 1000;
+}
+.full-menu.show-menu {
+    display: block;
 }
 
-.social-icons .icon {
-  color: white;
-  font-size: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons .icon:hover {
-  transform: scale(1.2);
-}
-
-.ig:hover { color: #E4405F; }  /* Instagram */
-.yt:hover { color: #FF0000; }  /* YouTube */
-.li:hover { color: #0077B5; }
     </style>
 </head>
 <body>
-    <!-- <nav class="nav">
+    <nav class="nav">
         <div class="container">
             <div class="logo">
-                <a href="#"></a>
+                <a href="../index.html"></a>
             </div>
             <div class="burger">
                 <span class="hamburger-span"></span>
@@ -150,30 +184,33 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
             </div>
             <div class="full-menu">
                 <ul>
-                    <li><a href="./events_new/event.html">Events</a></li>
-                    <li><a href="./97thteam/TEAM-MOBILE.html">Our Team</a></li>
-                    <li><a href="./sponsors/sponsor.html">Our Sponsers</a></li>
-                    <li><a href="./Gallery/gallery.html">Gallery</a></li>
-                    <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+                    <li><a href="../events_new/event.html">Events</a></li>
+                    <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
+                    <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                    <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                    <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
                     
                 </ul>
             </div>
             <div class="main_list" id="navbar">
                 <nav>
                     <ul>
-                    
-                        <li><a href="./events_new/event.html">Events</a></li>
-                        <li><a href="./97thteam/TEAM-PC.html">Our Team</a></li>
-                        <li><a href="./sponsors/sponsor.html">Our Sponsers</a></li>
-                        <li><a href="./Gallery/gallery.html">Gallery</a></li>
-                        <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
-
+                        <!-- <li><a href="../index.html">Home</a></li> -->
+                        <li><a href="../events_new/event.html">Events</a></li>
+                        <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
+                        <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
+    
                     </ul>
                 </nav>
             </div>
         </div>
-    </nav> -->
+    </nav>
 
+    <section class="home">
+        <div class="MainLogo" id="main-logo"></div>
+    </section>
     <section class="out">
     <div class="contact-form">
         <h2>Contact Us</h2>
@@ -219,75 +256,11 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
         </div>
     </div>
 </section>
-    <footer>
-        <div class="footer-parchment-wrapper">
-            <div class="footContainer grid grid-four-cols">
-                <div class="grid-item coep-regatta-logo">
-                    <p class="footer-heading">COEP REGATTA</p>
-                    <img src="../images/COEP TECH BOAT CLUB HIGH RESOLUTION.png" alt="COEP Boat Club png">
-                </div>
-
-                <div class="grid-item quick-links">
-                    <p class="footer-heading">Quick Links</p>
-                    <ul>
-                        <li> <a href="index.html"><i class="fa-solid fa-angle-right"></i> Home </a> </li>
-                        <li> <a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us </a> </li>
-                        <li> <a href="./97thteam/TEAM-PC.html"><i class="fa-solid fa-angle-right"></i> Committee </a> </li>
-                        <li> <a href="./events_new/event.html"><i class="fa-solid fa-angle-right"></i> Events </a> </li>
-                        <li> <a href="./events_new/event.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
-                        <li> <a href="./Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="grid-item quick-links">
-                    <p class="footer-heading">Useful Links</p>
-                    <ul>
-                        <li> <a href="sports.html"><i class="fa-solid fa-angle-right"></i> Sports </a> </li>
-                        <li> <a href="sponsors.html"><i class="fa-solid fa-angle-right"></i> Our Sponsors </a> </li>
-                        <li> <a href="jalmaitri.html"><i class="fa-solid fa-angle-right"></i> Jalmaitri Camp </a> </li>
-                        <li> <a href="events.html"><i class="fa-solid fa-angle-right"></i> Contact </a> </li>
-                        <li> <a href="shows.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
-                        <li> <a href="../Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="gird-item contact-us">
-                    <p class="footer-heading">Contact-Us</p>
-                    <p class="address">
-                        <strong>Boat Club Office:</strong> +91 20-25507179
-                        <strong>Email:</strong> boatclub@coeptech.ac.in
-                        COEP Technological University
-                        Shivajinagar, Pune - 411005
-                    </p>
-                    <a href="https://www.google.com/maps/place/COEP+Boat+Club/@18.5310149,73.8537509,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2c0883547926f:0x5fbecadb04a817bf!8m2!3d18.5310149!4d73.8563258!16s%2Fg%2F1tgvc1w5?coh=225992&entry=tts&g_ep=EgoyMDI1MDEwOC4wIPu8ASoASAFQAw%3D%3D"
-                        target="_blank">
-                        <button class="btn" role="button">View on Map</button>
-                    </a>
-                    <a href="contact.html" target="_blank">
-                        <button class="btn" role="button">Contact Us</button>
-                    </a>
-                    <div class="social-footer--icons">
-                        <a href="https://www.youtube.com/@coepregatta4240" target="_blank"
-                            alt="my youtube channel link">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
-                            alt="my instagram profile link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
-                            alt="my instagram profile link">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <p class="copyright">© COEP TECH REGATTA 2025</p>
-        </div>
-    </footer>
-
+<footer>
+    <div class="footer-copyright">
+        <p class="copyright">© COEP TECH REGATTA 2025</p>
+    </div>
+</footer>
     <script>
         const form = document.getElementById('contactForm');
         const successMessage = document.getElementById('successMessage');
@@ -354,6 +327,78 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
                 $('.nav').removeClass('affix');
             }
         });
+
+        const container = document.querySelector('.slider-container');
+            const slides = document.querySelectorAll('.slide');
+            let lastScrollTop = 0;
+            let scrollTimeout;
+
+            function getMostVisibleSlide() {
+                let maxVisibility = 0;
+                let mostVisibleSlide = null;
+                let mostVisibleIndex = 0;
+
+                slides.forEach((slide, index) => {
+                    const rect = slide.getBoundingClientRect();
+                    const visibility = Math.min(rect.bottom, window.innerHeight) -
+                        Math.max(rect.top, 0);
+
+                    if (visibility > maxVisibility) {
+                        maxVisibility = visibility;
+                        mostVisibleSlide = slide;
+                        mostVisibleIndex = index;
+                    }
+                });
+
+                return { slide: mostVisibleSlide, index: mostVisibleIndex };
+            }
+
+            function updateActiveSlide() {
+                const { slide: currentSlide, index: currentIndex } = getMostVisibleSlide();
+
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+
+                if (currentSlide) {
+                    currentSlide.classList.add('active');
+                }
+            }
+
+            container.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const currentScrollTop = container.scrollTop;
+                    if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                        updateActiveSlide();
+                        lastScrollTop = currentScrollTop;
+                    }
+                }, 50);
+            });
+
+            // Hide scroll indicator after first scroll
+            container.addEventListener('scroll', () => {
+                document.querySelector('.scroll-indicator').style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.scroll-indicator').style.display = 'none';
+                }, 500);
+            }, { once: true });
+
+            setTimeout(updateActiveSlide, 100);
+
+            document.addEventListener("DOMContentLoaded", function () {
+    const burger = document.querySelector(".burger");
+    const menu = document.querySelector(".full-menu");
+
+    burger.addEventListener("click", function () {
+        console.log("Burger menu clicked");
+        menu.classList.toggle("show-menu");
+    });
+});
     </script>
     <script src="js/scripts.js"></script>
 </body>

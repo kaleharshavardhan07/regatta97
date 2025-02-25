@@ -6,7 +6,12 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let currentIndex = 0;
-
+window.addEventListener('load', function () {
+    setTimeout(function () {
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('main-logo').classList.add('show-logo');
+    }, 2000);
+});
 // Open Lightbox
 function openLightbox(index) {
     currentIndex = index;

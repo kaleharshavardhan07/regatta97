@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sponsors - Coming Soon</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/hamburger.css">
+    <!-- <script src="../js/scripts.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @font-face {
             font-family: 'e-Ukraine Head';
             src: url('https://sealzi.com/e-Ukraine Head/e-UkraineHead-Regular.otf') format('opentype');
         }
-
+        
         * {
             margin: 0;
             padding: 0;
@@ -19,12 +22,37 @@
         }
 
         body {
-            display: flex;
+            /* display: flex;
             justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            align-items: center; */
+            /* min-height: 100vh; */
+            height: 100vh;
             background: #161616;
+            padding-bottom: 120px;
         }
+
+        body {
+    padding-top: 80px; 
+    min-height: 100vh;
+    background: #161616;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+section {
+    flex-grow: 1; 
+}
+
+        .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    padding: 10px 0;
+}
+
 
         section::before, section::after {
             content: '';
@@ -100,11 +128,76 @@
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
+        .content-section {
+    min-height: calc(100vh - 100px); /* Adjust 100px based on your footer height */
+}
+        footer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 4rem;
+    bottom: 0;
+}
+/* .footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #232323;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    position: relative;  
+} */
     </style>
 </head>
 <body>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"></a>
+            </div>
+            <div class="burger">
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+            </div>
+            <div class="full-menu">
+                <ul>
+                    <li><a href="../events_new/event.html">Events</a></li>
+                    <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
+                    <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                    <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                    <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            <div class="main_list" id="navbar">
+                <nav>
+                    <ul>
+                        <!-- <li><a href="../index.html">Home</a></li> -->
+                        <li><a href="../events_new/event.html">Events</a></li>
+                        <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
+                        <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
+    
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
     <section>
-        <h1 style="font-size: larger; color: #FFD700; justify-content: center; align-items: center; display: flex; padding-bottom: 5rem;font-size: 2rem;">SPONSORS</h1>
+        <h1 style="color: #FFD700; justify-content: center; align-items: center; display: flex; padding-bottom: 5rem;font-size: 4rem;">SPONSORS</h1>
         <div class="card">
             <!-- <div class="content">
                 <div class="imgBx">
@@ -116,5 +209,18 @@
             <div class="coming-soon" >Coming Soon...</div>
         </div>
     </section>
+
+    <footer style="bottom: 0;">
+        <p class="copyright">© COEP TECH REGATTA 2025</p>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="../js/scripts.js"></script>
+    <script>window.addEventListener('load', function () {
+        setTimeout(function () {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('main-logo').classList.add('show-logo');
+        }, 2000);
+    });
+</script>
 </body>
 </html>

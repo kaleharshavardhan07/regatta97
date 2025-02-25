@@ -5,17 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event</title>
     <link rel="stylesheet" href="event_style.css">
+    <!-- <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/oldAge.css">
+    <link rel="stylesheet" href="../css/hamburger.css"> -->
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <style>
+      
+        footer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-top: 4rem;
+}
+    </style>
 </head>
 <body>
+<!-- <nav class="nav">
+  <div class="container">
+      <div class="logo">
+          <a href="index.html"></a>
+      </div>
+      <div class="burger">
+          <span class="hamburger-span"></span>
+          <span class="hamburger-span"></span>
+          <span class="hamburger-span"></span>
+      </div>
+      <div class="full-menu">
+          <ul>
+              <li><a href="./events_new/event.html">Events</a></li>
+              <li><a href="./Gallery/gallery.html">Gallery</a></li>
+              <li><a href="./97thteam/TEAM-MOBILE.html">Our Team</a></li>
+              <li><a href="sponsors/coming.html">Our Sponsers</a></li>
+              <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+              
+          </ul>
+      </div>
+      <div class="main_list" id="navbar">
+          <nav>
+              <ul>
+                  <li><a href="./events_new/event.html">Events</a></li>
+                  <li><a href="./Gallery/gallery.html">Gallery</a></li>
+                  <li><a href="./97thteam/TEAM-PC.html">Our Team</a></li>
+                  <li><a href="sponsors/coming.html">Our Sponsers</a></li>
+                  <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
 
+              </ul>
+          </nav>
+      </div>
+  </div>
+  </nav> -->
     <main>
         <ul class='slider'>
           <li class='item' style="background-image: url('./img/m2.jpg')">
             <div class='content'>
               <h2 class='title'>"MASHAL DANCE"</h2>
-              <p class='description'> Lorem ipsum, dolor sit amet consectetur
-              adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
-              praesentium nisi. Id laboriosam ipsam enim.  </p>
+              <p class='description'> As darkness ensues, a Mashaal of hope is lit, a still  mirror of Mula river shines in their endless grit.
+
+                We sway to the rhythm of their flames as they bring down the stars tonight. </p>
               <a href="./events_new/mashal.html"><button>Read More</button></a>
             </div>
           </li>
@@ -74,12 +129,19 @@
             </div>
         </div>
       </footer>
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-      
+      <footer>
+        
+      </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="js/scripts.js"></script>
       <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
       <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
       <script src="evet_script.js"></script>
-    
+      <script>window.addEventListener('load', function () {
+        setTimeout(function () {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('main-logo').classList.add('show-logo');
+        }, 2000);
+    });</script>
 </body>
 </html>

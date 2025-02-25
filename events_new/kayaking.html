@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Photo Gallery</title>
+  <title>Kayaking</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <!-- <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/oldAge.css"> -->
+   <!-- <link rel="stylesheet" href="../css/hamburger.css"> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    
   <style>
     /* * {
       margin: 0;
@@ -289,35 +296,55 @@ footer {
   </style>
 </head>
 <body>
-  <!-- <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-  </header> -->
+  <!--
+  <nav class="nav">
+    <div class="container">
+        <div class="logo">
+            <a href="../index.html"></a>
+        </div>
+        
+        <div class="burger">
+            <span class="hamburger-span"></span>
+            <span class="hamburger-span"></span>
+            <span class="hamburger-span"></span>
+        </div>
+         <div class="full-menu">
+            <ul>
+                <li><a href="./events_new/event.html">Events</a></li>
+                <li><a href="./Gallery/gallery.html">Gallery</a></li>
+                <li><a href="./97thteam/TEAM-MOBILE.html">Our Team</a></li>
+                <li><a href="sponsors/coming.html">Our Sponsers</a></li>
+                
+                <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+                
+            </ul>
+        </div>
+        <div class="main_list" id="navbar">
+            <nav>
+                <ul>
+         
+                    <li><a href="./events_new/event.html">Events</a></li>
+                    <li><a href="./Gallery/gallery.html">Gallery</a></li>
+                    <li><a href="./97thteam/TEAM-PC.html">Our Team</a></li>
+                    <li><a href="sponsors/coming.html">Our Sponsers</a></li>
+                    <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
 
-  <!-- Heading Section -->
-  <!-- <div class="heading-container">
-    <h1>Telematches</h1>
-    <p>Explore the beauty of nature and beyond.</p>
-  </div> -->
+                </ul>
+            </nav>
+        </div> -->
+    </div>
+</nav>
+
   <div style="display: flex;align-items: center; justify-content: center;
   font-size: 5rem;color: rgb(255, 243, 243);font-family:Arial, Helvetica, sans-serif;">Kayak Ballet</div>
 
   
-  <div class="box" style="justify-content: center; display: flex; padding: 7rem; font-size: 1rem; font-family:Arial, Helvetica, sans-serif;">
+  <div class="box" style="justify-content: center; display: flex; font-size: 1rem; font-family:Arial, Helvetica, sans-serif;">
     
     <p style="font-size: 1rem;">
-      Speedily trimming the waves, Kayaks skim over the water with grace. 
+      Kayaking is an exhilarating water sport that combines adventure, endurance, and skill. Participants navigate narrow kayaks using a double-bladed paddle, requiring balance, control, and technique. Whether gliding through calm waters or tackling challenging currents.
+It test agility, speed, and technique. Participants develop core strength and balance as they propel through the water with precision. The sport is not just about speed but also about mastering control and adapting to the ever-changing river conditions. Whether competing in races or simply paddling for recreation, kayaking at COEP fosters a spirit of exploration and perseverance, making it a vital part of the boat club’s legacy.
 
-      With superior speed and agility,
-      
-      They glide through the murky rivers ablaze. 
-      
-      It’s the unflagging grit of the parade of kayak ballet.
         </p>
 </div>
   
@@ -431,5 +458,26 @@ font-size: 2rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bol
       }
     });
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="js/scripts.js"></script>
+  <script>
+      window.addEventListener('load', function () {
+          setTimeout(function () {
+              document.getElementById('loader').style.display = 'none';
+              document.getElementById('main-logo').classList.add('show-logo');
+          }, 2000);
+      });
+
+
+      $(window).scroll(function () {
+          if ($(document).scrollTop() > 50) {
+              $('.nav').addClass('affix');
+              console.log("OK");
+          } else {
+              $('.nav').removeClass('affix');
+          }
+      });
+  </script>
+
 </body>
 </html>
