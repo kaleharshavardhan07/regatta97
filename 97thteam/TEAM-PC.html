@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <!-- <script>
         window.onload = function () {
             if (window.innerWidth <= 458) {
@@ -20,7 +21,6 @@
         };
     </script> -->
     <style>
-        
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;800&display=swap");
 
         * {
@@ -278,6 +278,7 @@
         .space {
             height: 100px;
         }
+
         .glow-button {
             padding: 12px 24px;
             background-color: #000;
@@ -286,14 +287,63 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-          }
-          
-          .glow-button:hover {
+        }
+
+        .glow-button:hover {
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.8),
-                        0 0 30px rgba(0, 0, 0, 0.6),
-                        0 0 40px rgba(0, 0, 0, 0.4);
+                0 0 30px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(0, 0, 0, 0.4);
             transform: scale(1.05);
-          }
+        }
+
+        footer {
+            height: 4rem;
+            background-color: black;
+            color: white;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .copyright {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            /* Space between text and icons */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons .icon {
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons .icon:hover {
+            transform: scale(1.2);
+        }
+
+        .ig:hover {
+            color: #E4405F;
+        }
+
+        /* Instagram */
+        .yt:hover {
+            color: #FF0000;
+        }
+
+        /* YouTube */
+        .li:hover {
+            color: #0077B5;
+        }
     </style>
     <link rel="stylesheet" href="../css/styles.css">
     <!-- <link rel="stylesheet" href="../css/oldAge.css"> -->
@@ -304,63 +354,63 @@
 
 <body>
     <div id="loader"
-    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgb(6, 84, 101); display: flex; justify-content: center; align-items: center; z-index: 9999;">
-    <dotlottie-player src="https://lottie.host/e6d792da-e5f6-4f5f-b0fb-82a9ce8a6081/MUec6cxuKL.lottie"
-       background="transparent" speed="1" style="width: 150px; height: 150px;  background: rgba( 255, 255, 255, 0.2 );
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgb(6, 84, 101); display: flex; justify-content: center; align-items: center; z-index: 9999;">
+        <dotlottie-player src="https://lottie.host/e6d792da-e5f6-4f5f-b0fb-82a9ce8a6081/MUec6cxuKL.lottie"
+            background="transparent" speed="1" style="width: 150px; height: 150px;  background: rgba( 255, 255, 255, 0.2 );
 box-shadow: 0 8px 32px 0 rgba(6, 217, 255, 0.37);
 backdrop-filter: blur( 0px );
 -webkit-backdrop-filter: blur( 0px );
 border-radius: 50%;
 border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
-</div>
+    </div>
 
-<nav class="nav">
-    <div class="container">
-        <div class="logo">
-            <a href="#"></a>
-        </div>
-        <div class="burger">
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-        </div>
-        <div class="full-menu">
-            <ul>
-                <li><a href="../events_new/event.html">Events</a></li>
-                <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
-                <li><a href="../sponsors/sponsor.html">Our Sponsers</a></li>
-                <li><a href="../Gallery/gallery.html">Gallery</a></li>
-                <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
-                
-            </ul>
-        </div>
-        <div class="main_list" id="navbar">
-            <nav>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"></a>
+            </div>
+            <div class="burger">
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+            </div>
+            <div class="full-menu">
                 <ul>
-                    <!-- <li><a href="../index.html">Home</a></li> -->
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="../events_new/event.html">Events</a></li>
-                    <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
-                    <li><a href="../sponsors/sponsor.html">Our Sponsers</a></li>
+                    <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
                     <li><a href="../Gallery/gallery.html">Gallery</a></li>
                     <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
 
                 </ul>
-            </nav>
+            </div>
+            <div class="main_list" id="navbar">
+                <nav>
+                    <ul>
+                        <!-- <li><a href="../index.html">Home</a></li> -->
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../events_new/event.html">Events</a></li>
+                        <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
+
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <section>
         <span>meet our</span>
         <h2>Team</h2>
         <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, praesentium veritatis voluptatibus ut
             consequuntur quas consequatur omnis id rem obcaecati.</p> -->
         <span class="bg-watermark">REGATTA SECRETARY</span>
-        <h2 >REGATTA SECRETARY</h2>
+        <h2>REGATTA SECRETARY</h2>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="#"><i class="far fa-envelope"></i></a>
                 </div>
 
@@ -382,7 +432,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="#"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/omkar_kale.jpg" alt="Franklin Carlson">
@@ -394,8 +444,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/16mandar?igsh=MW5sbnBvam9qa3hhdg=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/16mandar?igsh=MW5sbnBvam9qa3hhdg=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:khondmm22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Mandar_Khond.jpg" alt="Travis Lynch">
@@ -416,8 +467,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/bhagwat.darshan.11?igsh=MXYxaTFrenpmcHJocA=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/bhagwat.darshan.11?igsh=MXYxaTFrenpmcHJocA=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:bhagwatdarshan15@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Darshan_Bhagwat.JPG" alt="Franklin Carlson">
@@ -430,7 +482,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="www.instagram.com/tusharbankar712"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:tusharbankar712@gmail.com "><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Tushar_Bankar.jpg" alt="Travis Lynch">
@@ -465,7 +517,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sarthak_vikhe_patil"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:Sarthakvikhe7@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Sarthak_vikhe.jpg" alt="Travis Lynch">
@@ -487,7 +539,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="https://www.instagram.com/kale_harshavardhan_07/"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:kalehp22.comp@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Harshavardhan_Kale.png" alt="Franklin Carlson">
@@ -497,7 +549,22 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
 
                 </div>
             </div>
+
             <div class="card">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/krushna_1129?igsh=MWZwbzVxYTRuejV6cg=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
+                    <a href="mailto:deshmukhkrushna9850@gmail.com"><i class="far fa-envelope"></i></a>
+                </div>
+                <img src="./photo/Krushna_Deshmukh.jpg" alt="Franklin Carlson">
+                <div class="card-content">
+                    <h3>HARSHAVARDHAN KALE</h3>
+                    <!-- <p>UX Designer</p> -->
+
+                </div>
+            </div>
+            <!-- <div class="card">
                 <div class="social-icons">
                     <a href="https://www.instagram.com/krushna_1129?igsh=MWZwbzVxYTRuejV6cg=="><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -507,10 +574,8 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                 alt="Travis Lynch" >
                 <div class="card-content">
                     <h3>KRUSHNA DESHMUKH</h3>
-                    <!-- <p>web developer</p> -->
-
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="space">
 
@@ -522,7 +587,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="https://www.instagram.com/tejas_v_jadhav2004/"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:tejasvjadhav2004@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/tejas_jadhav.jpg" alt="Franklin Carlson">
@@ -536,8 +601,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
 
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/jugnu_077?igsh=NzIxMmQ1eTg1dzBi"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/jugnu_077?igsh=NzIxMmQ1eTg1dzBi"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:jugnubaldota@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Jugnu Baldota.jpg" alt="Travis Lynch">
@@ -548,13 +614,14 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                 </div>
             </div>
 
-            
+
         </div>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/_.rohitvir._?igsh=MWFtYjFhZDF4c3o5cQ=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_.rohitvir._?igsh=MWFtYjFhZDF4c3o5cQ=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:virrs22.mech@coeptech."><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Rohit Vir.jpg" alt="Franklin Carlson">
@@ -578,7 +645,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="u.dayyyy_"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:dhanwadeun22.instru@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/UDAY_DHANWADE.jpg" alt="Franklin Carlson">
@@ -611,8 +678,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/rev_0419?igsh=bDI0cGp5ZXRsM2Zr"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/rev_0419?igsh=bDI0cGp5ZXRsM2Zr"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:patarerc22.comp@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Revati_Patare.jpg" alt="Franklin Carlson">
@@ -624,8 +692,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/sudhanva_011?igsh=MWFpbHZrdmE3Z2loNQ=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/sudhanva_011?igsh=MWFpbHZrdmE3Z2loNQ=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:sudhanvakale0011@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/sudanava_kale.jpeg" alt="Travis Lynch">
@@ -639,8 +708,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/_.dishadixit._?igsh=Y2szYnZnajQ2cGN1"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/_.dishadixit._?igsh=Y2szYnZnajQ2cGN1"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:dishad22.instru@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/disha_dixit.jpg" alt="Franklin Carlson">
@@ -661,8 +731,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/aaryawithdouble.a?igsh=NDRudGU2aXVwejk2"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/aaryawithdouble.a?igsh=NDRudGU2aXVwejk2"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:aaryask22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Aarya_Kendale.jpg" alt="Franklin Carlson">
@@ -674,8 +745,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/amey_suradkar03?igsh=MTl2cHRoMmw0bThsNw=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/amey_suradkar03?igsh=MTl2cHRoMmw0bThsNw=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:ameysuradkar@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Amey_Suradkar.jpg" alt="Travis Lynch">
@@ -690,7 +762,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
 
         </div>
         <!-- ################################################### -->
-        <h2>WEB HEADS</h2>
+        <h2>WEB HEAD</h2>
         <span class="bg-watermark">CODE</span>
         <div class="cards">
             <div class="card">
@@ -706,8 +778,8 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
 
                 </div>
             </div>
-           
-        </div> 
+
+        </div>
         <div class="space">
 
         </div>
@@ -723,8 +795,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/tanishq_kapkar_?igsh=OXd3bm16cG1iemx3"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/tanishq_kapkar_?igsh=OXd3bm16cG1iemx3"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:kapkaryugakshi10@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Tanishq kapker.jpg" alt="Franklin Carlson">
@@ -736,8 +809,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/neha_nn_0206?igsh=djVjeHo1OGt5YW9z"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/neha_nn_0206?igsh=djVjeHo1OGt5YW9z"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:nehanale0206@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/NehaNale.jpg" alt="Travis Lynch">
@@ -758,7 +832,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="omkar_g.neel07"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:omkarneel6762@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Omkar_Neel.jpeg" alt="Franklin Carlson">
@@ -771,7 +845,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             <div class="card">
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="#"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/SHIVAM KAKADE.jpg" alt="Travis Lynch">
@@ -782,16 +856,17 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                 </div>
             </div>
 
+
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:siddhijekte@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/SIDDHI_JEKTE.jpg" alt="Franklin Carlson">
                 <div class="card-content">
                     <h3>SIDDHI JEKTE</h3>
-                    <!-- <p>UX Designer</p> -->
 
                 </div>
             </div>
@@ -822,7 +897,8 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="far fa-envelope"></i></a>
                 </div> -->
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="Travis Lynch">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                    alt="Travis Lynch">
                 <div class="card-content">
                     <h3>YASH RASEKAR</h3>
                     <!-- <p>web developer</p> -->
@@ -833,8 +909,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/filinta_786?igsh=MTN6aHFrdWR0Zm1wYQ=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/filinta_786?igsh=MTN6aHFrdWR0Zm1wYQ=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="ailto:khanrs22.mech@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Ruhail_Khan.jpg" alt="Franklin Carlson">
@@ -844,7 +921,7 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
 
                 </div>
             </div>
-           
+
         </div>
         <div class="space">
 
@@ -855,8 +932,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/shraddhaaaaa_05?igsh=MWFrMWIwYmd5c2lhcw=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/shraddhaaaaa_05?igsh=MWFrMWIwYmd5c2lhcw=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:jawaless23.meta@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/SHRADDHA_JAWALE.jpg" alt="Franklin Carlson">
@@ -868,8 +946,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/samrudhijawale_08?igsh=MTVtd3prdTNlZ3lmaw=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/samrudhijawale_08?igsh=MTVtd3prdTNlZ3lmaw=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="samruddhijawale2121@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/samrudhi Jawale.jpg" alt="Travis Lynch">
@@ -889,8 +968,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/yashraj_15.02?igsh=MWhmaHN3ZHJkenM3cw=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/yashraj_15.02?igsh=MWhmaHN3ZHJkenM3cw=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:yashkawade009@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/yash_k.jpg" alt="Franklin Carlson">
@@ -923,8 +1003,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         <div class="cards">
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/sumitchavan?igsh=MWRxOGR4eTRoMmQzeQ=="><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/sumitchavan?igsh=MWRxOGR4eTRoMmQzeQ=="><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:chavansp22.civil@coeptech.ac.in"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Sumit - Sumit Chavan.jpg" alt="Franklin Carlson">
@@ -936,8 +1017,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
             </div>
             <div class="card">
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/snehal_ghugare1?igsh=MWNhdTBpb29nZm1mcw"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/snehal_ghugare1?igsh=MWNhdTBpb29nZm1mcw"><i
+                            class="fab fa-instagram"></i></a>
+                    <!-- <a href="#"><i class="fab fa-linkedin-in"></i></a> -->
                     <a href="mailto:snehalghugare05@gmail.com"><i class="far fa-envelope"></i></a>
                 </div>
                 <img src="./photo/Snehal Ghugare.jpg" alt="Travis Lynch">
@@ -948,8 +1030,8 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                 </div>
             </div>
         </div>
-        <div class="cards">
-            <!-- <div class="card">
+        <!-- <div class="cards">
+            <div class="card">
                 <div class="social-icons">
                     <a href="https://www.instagram.com/siddhiiiiiii__15?igsh=OGQ5ZDc2ODk2ZA=="><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -960,79 +1042,16 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
                     <h3>SIDDHI JEKTE</h3>
 
                 </div>
-            </div> -->
+            </div>
 
-        </div>
+        </div> -->
         <div class="space">
 
         </div>
     </section>
 
     <footer>
-        <div class="footer-parchment-wrapper">
-            <div class="footContainer grid grid-four-cols">
-                <div class="grid-item coep-regatta-logo">
-                    <p class="footer-heading">COEP REGATTA</p>
-                    <img src="../images/COEP TECH BOAT CLUB HIGH RESOLUTION.png" alt="COEP Boat Club png">
-                </div>
-
-                <div class="grid-item quick-links">
-                    <p class="footer-heading">Quick Links</p>
-                    <ul>
-                        <li> <a href="../index.html"><i class="fa-solid fa-angle-right"></i> Home </a> </li>
-                        <li> <a href="../about.html"><i class="fa-solid fa-angle-right"></i> About Us </a> </li>
-                        <li> <a href="../97thteam/TEAM-PC.html"><i class="fa-solid fa-angle-right"></i> Committee </a> </li>
-                        <li> <a href="../events_new/event.html"><i class="fa-solid fa-angle-right"></i> Events </a> </li>
-                        <li> <a href="../events_new/event.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
-                        <li> <a href="../Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="grid-item quick-links">
-                    <p class="footer-heading">Useful Links</p>
-                    <ul>
-                        <li> <a href="sports.html"><i class="fa-solid fa-angle-right"></i> Sports </a> </li>
-                        <li> <a href="sponsors.html"><i class="fa-solid fa-angle-right"></i> Our Sponsors </a> </li>
-                        <li> <a href="jalmaitri.html"><i class="fa-solid fa-angle-right"></i> Jalmaitri Camp </a> </li>
-                        <li> <a href="events.html"><i class="fa-solid fa-angle-right"></i> Contact </a> </li>
-                        <li> <a href="shows.html"><i class="fa-solid fa-angle-right"></i> Shows </a> </li>
-                        <li> <a href="../Gallery/gallery.html"><i class="fa-solid fa-angle-right"></i> Gallery </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="gird-item contact-us">
-                    <p class="footer-heading">Contact-Us</p>
-                    <p class="address">
-                        <strong>Boat Club Office:</strong> +91 20-25507179
-                        <strong>Email:</strong> boatclub@coeptech.ac.in
-                        COEP Technological University
-                        Shivajinagar, Pune - 411005
-                    </p>
-                    <a href="https://www.google.com/maps/place/COEP+Boat+Club/@18.5310149,73.8537509,17z/data=!3m1!4b1!4m6!3m5!1s0x3bc2c0883547926f:0x5fbecadb04a817bf!8m2!3d18.5310149!4d73.8563258!16s%2Fg%2F1tgvc1w5?coh=225992&entry=tts&g_ep=EgoyMDI1MDEwOC4wIPu8ASoASAFQAw%3D%3D"
-                        target="_blank">
-                        <button class="btn" role="button">View on Map</button>
-                    </a>
-                    <a href="../contact.html" target="_blank">
-                        <button class="btn" role="button">Contact Us</button>
-                    </a>
-                    <div class="social-footer--icons">
-                        <a href="https://www.youtube.com/@coepregatta4240" target="_blank"
-                            alt="my youtube channel link">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
-                            alt="my instagram profile link">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="https://www.instagram.com/coepregatta/" target="_blank"
-                            alt="my instagram profile link">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
+        <div>
             <p class="copyright">© COEP TECH REGATTA 2025</p>
         </div>
     </footer>
@@ -1057,6 +1076,9 @@ border: 1px solid rgba(19, 167, 187, 0.18);" loop autoplay></dotlottie-player>
         });
     </script>
     <script src="js/scripts.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
