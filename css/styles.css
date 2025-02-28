@@ -11,7 +11,7 @@ body {
     font-style: normal;
     font-size: 62.5%;
     width: 100%;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
     min-height: 100%;
 }
 
@@ -23,7 +23,7 @@ body {
     text-align: center;
     z-index: 1000;
     padding-top: 10px;
-    padding-bottom: 20px;
+    /* padding-bottom: 20px; */
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
@@ -91,22 +91,25 @@ body {
     width: 100%;
     height: 100vh;
     background-image: url(../images/photo4.jpg);
-    /* background-position: center top; */
     background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    /* Add overflow*/
 }
 
 .MainLogo {
     height: 80%;
     width: 80%;
+    max-width: 100%; /* Add max-width to prevent overflow */
     background-image: url(../images/LOGO\ 97..reg[1].png);
-    background-size: 80% 80%;
+    background-size: contain;
+    /* Change to contain to ensure it fits */
     background-repeat: no-repeat;
     background-position: center;
-    /* animation: fadeInScale 1.5s ease-out forwards; */
     transform: scale(0.5);
     transition: opacity 1s ease-out, transform 1s ease-out;
 
@@ -139,8 +142,8 @@ body {
     /* padding-left: 15px; */
     margin-right: auto;
     margin-left: auto;
-    overflow: hidden;
-    
+    /* overflow: hidden; */
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
@@ -535,8 +538,8 @@ footer img {
     margin: 0 auto;
     padding: 3rem 4rem;
     height: 100%;
-    background: none;
     background: transparent;
+    box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -544,7 +547,7 @@ footer img {
         margin: 1rem 0.5rem;
         padding: 0.5rem;
     }
-    
+
     .footContainer {
         padding: 2rem;
     }
@@ -555,7 +558,7 @@ footer img {
         margin: 0.5rem 0.25rem;
         padding: 0.25rem;
     }
-    
+
     .footContainer {
         padding: 1rem;
     }
@@ -697,4 +700,7 @@ footer img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+    /* Add this to prevent horizontal scroll */
 }

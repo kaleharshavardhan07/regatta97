@@ -253,40 +253,41 @@
             color: rgb(163, 215, 215);
         }
 
-        
-footer {
-  height: 4rem;
-  background-color: black;
-  color: white;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px 0;
-}
 
-.copyright {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px; /* Space between text and icons */
-}
+        footer {
+            height: 4rem;
+            background-color: black;
+            color: white;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px 0;
+        }
 
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
+        .copyright {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+            /* Space between text and icons */
+        }
 
-.social-icons .icon {
-  color: white;
-  font-size: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
 
-.social-icons .icon:hover {
-  transform: scale(1.2);
-}
+        .social-icons .icon {
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icons .icon:hover {
+            transform: scale(1.2);
+        }
     </style>
     <link rel="stylesheet" href="../css/styles.css">
     <!-- <link rel="stylesheet" href="../css/oldAge.css"> -->
@@ -298,42 +299,42 @@ footer {
 
 <body>
 
-    
-<nav class="nav">
-    <div class="container">
-        <div class="logo">
-            <a href="../index.html"></a>
-        </div>
-        <div class="burger">
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-        </div>
-        <div class="full-menu">
-            <ul>
-                <li><a href="../events_new/event.html">Events</a></li>
-                <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
-                <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
-                <li><a href="../Gallery/gallery.html">Gallery</a></li>
-                <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
-                
-            </ul>
-        </div>
-        <div class="main_list" id="navbar">
-            <nav>
+
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html"></a>
+            </div>
+            <div class="burger">
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+                <span class="hamburger-span"></span>
+            </div>
+            <div class="full-menu">
                 <ul>
-                    <!-- <li><a href="../index.html">Home</a></li> -->
                     <li><a href="../events_new/event.html">Events</a></li>
-                    <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
+                    <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
                     <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
                     <li><a href="../Gallery/gallery.html">Gallery</a></li>
                     <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
 
                 </ul>
-            </nav>
+            </div>
+            <div class="main_list" id="navbar">
+                <nav>
+                    <ul>
+                        <!-- <li><a href="../index.html">Home</a></li> -->
+                        <li><a href="../events_new/event.html">Events</a></li>
+                        <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
+                        <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                        <li><a href="../Gallery/gallery.html">Gallery</a></li>
+                        <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
+
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <div class="slider-container">
         <div class="slide">
             <div class="head">
@@ -1760,7 +1761,7 @@ footer {
 
             </div>
         </div>
-git pull
+        git pull
         <div class="slide">
             <div class="head">
                 <!-- <h2>ESM - HEAD</h2> -->
@@ -1954,7 +1955,7 @@ git pull
                 <p class="copyright">© COEP TECH REGATTA 2025</p>
             </div>
         </footer>
-        
+
         <!-- Progress dots -->
         <div class="progress-dots">
             <div class="dot active"></div>
@@ -2002,7 +2003,7 @@ git pull
             </svg>
         </div>
 
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="../js/scripts.js"></script>
         <script>
@@ -2012,8 +2013,8 @@ git pull
                     document.getElementById('main-logo').classList.add('show-logo');
                 }, 2000);
             });
-    
-    
+
+
             $(window).scroll(function () {
                 if ($(document).scrollTop() > 50) {
                     $('.nav').addClass('affix');
@@ -2024,7 +2025,7 @@ git pull
             });
         </script>
         <script src="js/scripts.js"></script>
-        
+
         <script>
             const container = document.querySelector('.slider-container');
             const slides = document.querySelectorAll('.slide');

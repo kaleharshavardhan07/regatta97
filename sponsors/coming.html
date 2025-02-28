@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             font-family: 'e-Ukraine Head';
             src: url('https://sealzi.com/e-Ukraine Head/e-UkraineHead-Regular.otf') format('opentype');
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -32,29 +33,31 @@
         }
 
         body {
-    padding-top: 80px; 
-    min-height: 100vh;
-    background: #161616;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-section {
-    flex-grow: 1; 
-}
+            padding-top: 80px;
+            min-height: 100vh;
+            background: #161616;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        section {
+            flex-grow: 1;
+        }
 
         .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    padding: 10px 0;
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            padding: 10px 0;
+        }
 
 
-        section::before, section::after {
+        section::before,
+        section::after {
             content: '';
             position: absolute;
             top: 0;
@@ -120,34 +123,50 @@ section {
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
+
         .content-section {
-    min-height: calc(100vh - 100px); /* Adjust 100px based on your footer height */
-}
+            min-height: calc(100vh - 100px);
+            /* Adjust 100px based on your footer height */
+        }
+
         footer {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    font-size: 1.5rem;
-    margin-bottom: 0;
-    margin-top: 4rem;
-    bottom: 0;
-}
-/* .footer {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+            margin-top: 4rem;
+            bottom: 0;
+        }
+
+        /* .footer {
     width: 100%;
     text-align: center;
     padding: 1rem 0;
@@ -159,6 +178,7 @@ section {
 } */
     </style>
 </head>
+
 <body>
     <nav class="nav">
         <div class="container">
@@ -172,24 +192,23 @@ section {
             </div>
             <div class="full-menu">
                 <ul>
+                    <li><a href="../index.html">Home</a></li>
                     <li><a href="../events_new/event.html">Events</a></li>
                     <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
-                    <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
                     <li><a href="../Gallery/gallery.html">Gallery</a></li>
                     <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
-                    
+
                 </ul>
             </div>
             <div class="main_list" id="navbar">
                 <nav>
                     <ul>
-                        <!-- <li><a href="../index.html">Home</a></li> -->
+                        <li><a href="../index.html">Home</a></li>
                         <li><a href="../events_new/event.html">Events</a></li>
-                        <li><a href="../97thteam/TEAM-PC.html">Our Team</a></li>
-                        <li><a href="../sponsors/coming.html">Our Sponsers</a></li>
+                        <li><a href="../97thteam/TEAM-MOBILE.html">Our Team</a></li>
                         <li><a href="../Gallery/gallery.html">Gallery</a></li>
                         <li><a href="../contact-us/CONTACTUS.html">Contact</a></li>
-    
+
                     </ul>
                 </nav>
             </div>
@@ -197,7 +216,9 @@ section {
     </nav>
 
     <section>
-        <h1 style="color: #FFD700; justify-content: center; align-items: center; display: flex; padding-bottom: 5rem;font-size: 4rem;">SPONSORS</h1>
+        <h1
+            style="color: #FFD700; justify-content: center; align-items: center; display: flex; padding-bottom: 5rem;font-size: 4rem;">
+            SPONSORS</h1>
         <div class="card">
             <!-- <div class="content">
                 <div class="imgBx">
@@ -206,7 +227,7 @@ section {
                 <h3>Our Sponsors</h3>
                 <span>We appreciate the support and collaboration of our valued sponsors.</span>
             </div> -->
-            <div class="coming-soon" >Coming Soon...</div>
+            <div class="coming-soon">Coming Soon...</div>
         </div>
     </section>
 
@@ -216,11 +237,12 @@ section {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="../js/scripts.js"></script>
     <script>window.addEventListener('load', function () {
-        setTimeout(function () {
-            document.getElementById('loader').style.display = 'none';
-            document.getElementById('main-logo').classList.add('show-logo');
-        }, 2000);
-    });
-</script>
+            setTimeout(function () {
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('main-logo').classList.add('show-logo');
+            }, 2000);
+        });
+    </script>
 </body>
+
 </html>
