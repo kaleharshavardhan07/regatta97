@@ -5,62 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kayaking</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-   <!-- <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/oldAge.css"> -->
-   <!-- <link rel="stylesheet" href="../css/hamburger.css"> -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     
   <style>
-    /* * {
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      background-image: url(../md2-min.jpg);
-      background-size: cover;
+      position: relative;
     }
 
+    /* Apply background image with blur effect */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(./img/k5\ -\ Copy.png);
+      background-size: cover;
+      background-position: center;
+      filter: blur(5px); /* Adjust blur level */
+      z-index: -1;
+    }
+
+    /* Main body styles */
     body {
-      font-family: 'Poppins', sans-serif;
       background-color: #282727;
       color: #f6f5f5;
-    } */
-
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    position: relative;
-}
-
-/* Apply background image with blur effect */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(./img/k5\ -\ Copy.png);
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px); /* Adjust blur level */
-    z-index: -1;
-}
-
-/* Main body styles */
-body {
-    /* font-family: 'Poppins', sans-serif; */
-    background-color: #282727;
-    color: #f6f5f5;
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    overflow-y: scroll; /* Enable vertical scrolling for the entire page */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
     header {
       position: sticky;
@@ -71,29 +52,7 @@ body {
       z-index: 1000;
     }
 
-    /* Heading Styles */
-    /* .heading-container {
-      text-align: center;
-      padding: 2rem 0;
-      background: linear-gradient(135deg, #b62323, #e2e21e);
-      color: rgb(255, 255, 255);
-      margin-bottom: 2rem;
-    } */
-
-    /* .heading-container h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      animation: fadeInDown 1s ease-in-out;
-    }
-
-    .heading-container p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      animation: fadeInUp 1s ease-in-out;
-    } */
-
+    /* Animations */
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -116,28 +75,57 @@ body {
       }
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Page title */
+    .page-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: rgb(255, 243, 243);
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      padding: 2rem 0.5rem;
+      animation: fadeInDown 1s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    /* Gallery section */
     #gallery {
-      padding: 2rem;
+      padding: 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .gallery-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
       align-content: space-between;
     }
 
     .photo {
       position: relative;
       overflow: hidden;
-      width: 450px;
+      width: 100%;
       border-radius: 10px;
       animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      height: 0;
+      padding-bottom: 75%; /* Maintain aspect ratio */
     }
 
     .photo img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: transform 0.3s ease;
     }
@@ -162,11 +150,6 @@ body {
       bottom: 0;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     /* Lightbox Styles */
     .lightbox {
       display: none;
@@ -181,10 +164,12 @@ body {
     }
 
     .lightbox-content {
+      top: 25%;
       margin: auto;
       display: block;
-      max-width: 80%;
+      max-width: 90%;
       max-height: 80%;
+      object-fit: contain;
     }
 
     .close, .prev, .next {
@@ -192,6 +177,7 @@ body {
       color: white;
       font-size: 2rem;
       cursor: pointer;
+      z-index: 1002;
     }
 
     .close {
@@ -205,174 +191,186 @@ body {
     }
 
     .prev {
-      left: 30px;
+      left: 15px;
     }
 
     .next {
-      right: 30px;
+      right: 15px;
     }
 
+    /* Text box styles */
     .box {
-    background: rgba(0, 0, 0, 0.6); /* More transparent black */
-    color: white;
-  padding: 20px;
-  text-align: center;
-    max-width: 600px;
-    margin: 20px auto; /* Center the text box */
-    border-radius: 10px;
-    transform: translateY(20px); /* Initially slightly below its final position */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
-    /* Blurs content behind the text box */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Adds a subtle shadow */
-    overflow-y: auto; /* Enable scrolling within the text box */
-    max-height: 50vh; /* Set a maximum height for the text box */
-}
-
-/* Make the text box visible when active */
-.panel.active .text-box {
-    opacity: 1; /* Visible when panel is active */
-    transform: translateY(0); /* Moves to final position */
-}
-
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-    .text-box {
-        max-width: 90%; /* Make text box wider on smaller screens */
-        font-size: 14px; /* Adjust font size */
-        padding: 15px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      max-width: 90%;
+      margin: 20px auto;
+      border-radius: 10px;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      overflow-y: auto;
+      animation: fadeInUp 1s ease-in-out;
     }
-}
 
-footer {
-  height: 4rem;
-  background-color: black;
-  color: white;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px 0;
-}
+    .box p {
+      line-height: 1.6;
+      text-align: left;
+    }
 
-.copyright {
-  font-weight: bold;
-  font-size: 14px;
-  margin-bottom: 5px; /* Space between text and icons */
-}
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: rgb(253, 252, 250);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      margin-bottom: 1.5rem;
+    }
 
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
+    /* Organizers section */
+    .org {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 100;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
 
-.social-icons .icon {
-  color: white;
-  font-size: 24px;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
+    .gap {
+      width: 1rem;
+    }
 
-.social-icons .icon:hover {
-  transform: scale(1.2);
-}
+    /* Footer styles */
+    footer {
+      background-color: black;
+      color: white;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: 2rem;
+    }
 
-.ig:hover { color: #E4405F; }  /* Instagram */
-.yt:hover { color: #FF0000; }  /* YouTube */
-.li:hover { color: #0077B5; }
+    .copyright {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
 
-.org{
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 100;
-  margin: 2rem 0;
-}
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
 
-.gap {
-    width: 2rem; 
-}
+    .social-icons .icon {
+      color: white;
+      font-size: 24px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons .icon:hover {
+      transform: scale(1.2);
+    }
+
+    .ig:hover { color: #E4405F; }
+    .yt:hover { color: #FF0000; }
+    .li:hover { color: #0077B5; }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .page-title {
+        font-size: 2.5rem;
+        padding: 1.5rem 0.5rem;
+      }
+
+      .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+
+      .box {
+        padding: 15px;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .lightbox-content {
+        max-width: 95%;
+      }
+
+      .prev, .next {
+        font-size: 1.5rem;
+      }
+
+      .close {
+        top: 10px;
+        right: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-title {
+        font-size: 2rem;
+        padding: 1rem 0.5rem;
+      }
+
+      .gallery-container {
+        grid-template-columns: 1fr;
+      }
+
+      .org {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .gap {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-  <!--
-  <nav class="nav">
-    <div class="container">
-        <div class="logo">
-            <a href="../index.html"></a>
-        </div>
-        
-        <div class="burger">
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-            <span class="hamburger-span"></span>
-        </div>
-         <div class="full-menu">
-            <ul>
-                <li><a href="./events_new/event.html">Events</a></li>
-                <li><a href="./Gallery/gallery.html">Gallery</a></li>
-                <li><a href="./97thteam/TEAM-MOBILE.html">Our Team</a></li>
-                <li><a href="sponsors/coming.html">Our Sponsers</a></li>
-                
-                <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
-                
-            </ul>
-        </div>
-        <div class="main_list" id="navbar">
-            <nav>
-                <ul>
-         
-                    <li><a href="./events_new/event.html">Events</a></li>
-                    <li><a href="./Gallery/gallery.html">Gallery</a></li>
-                    <li><a href="./97thteam/TEAM-PC.html">Our Team</a></li>
-                    <li><a href="sponsors/coming.html">Our Sponsers</a></li>
-                    <li><a href="./contact-us/CONTACTUS.html">Contact</a></li>
+  <div class="page-title">Kayak Ballet</div>
 
-                </ul>
-            </nav>
-        </div> -->
-    </div>
-</nav>
-
-  <div style="display: flex;align-items: center; justify-content: center;
-  font-size: 5rem;color: rgb(255, 243, 243);font-family:Arial, Helvetica, sans-serif;">Kayak Ballet</div>
-
-  
-  <div class="box" style="justify-content: center; display: flex; font-size: 1rem; font-family:Arial, Helvetica, sans-serif;">
-    
-    <p style="font-size: 1rem;">
+  <div class="box">
+    <p>
       Kayaking is an exhilarating water sport that combines adventure, endurance, and skill. Participants navigate narrow kayaks using a double-bladed paddle, requiring balance, control, and technique. Whether gliding through calm waters or tackling challenging currents.
-It test agility, speed, and technique. Participants develop core strength and balance as they propel through the water with precision. The sport is not just about speed but also about mastering control and adapting to the ever-changing river conditions. Whether competing in races or simply paddling for recreation, kayaking at COEP fosters a spirit of exploration and perseverance, making it a vital part of the boat club’s legacy.
-
-        </p>
-</div>
+It test agility, speed, and technique. Participants develop core strength and balance as they propel through the water with precision. The sport is not just about speed but also about mastering control and adapting to the ever-changing river conditions. Whether competing in races or simply paddling for recreation, kayaking at COEP fosters a spirit of exploration and perseverance, making it a vital part of the boat club's legacy.
+    </p>
+  </div>
   
-
   <section id="gallery">
     <div class="gallery-container">
       <div class="photo">
-        <img src="./img/k1.png" alt="Photo 1">
+        <img src="./img/k1.png" alt="Kayak event photo 1">
       </div>
       <div class="photo">
-        <img src="./img/k2.png" alt="Photo 2">
+        <img src="./img/k2.png" alt="Kayak event photo 2">
       </div>
       <div class="photo">
-        <img src="./img/k5.png" alt="Photo 3">
+        <img src="./img/k5.png" alt="Kayak event photo 3">
       </div>
       <div class="photo">
-        <img src="./img/k4.png" alt="Photo 4">
+        <img src="./img/k4.png" alt="Kayak event photo 4">
       </div>
       <div class="photo">
-        <img src="./img/k3.png" alt="Photo 5">
+        <img src="./img/k3.png" alt="Kayak event photo 5">
       </div>
       <div class="photo">
-        <img src="./img/k6.png" alt="Photo 6">
-        <div class="caption"></div>
+        <img src="./img/k6.png" alt="Kayak event photo 6">
       </div>
     </div>
   </section>
-
 
   <!-- Lightbox -->
   <div id="lightbox" class="lightbox">
@@ -383,40 +381,39 @@ It test agility, speed, and technique. Participants develop core strength and ba
   </div>
 
   <div class="box">
-    <div style="display: flex;align-items: center; justify-content: center;
-font-size: 2rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bold;">Organisers</div>
+    <div class="section-title">Organisers</div>
 
     <div class="org">
-        <span>name1</span>
-        <div class="gap"></div>
-        <i class="fa-solid fa-phone"></i>
-        <span>37483274238</span>
+      <span>name1</span>
+      <div class="gap"></div>
+      <i class="fa-solid fa-phone"></i>
+      <span>37483274238</span>
     </div>
 
     <div class="org">
-        <span>name2</span>
-        <div class="gap"></div>
-        <i class="fa-solid fa-phone"></i>
-        <span>1234567890</span>
+      <span>name2</span>
+      <div class="gap"></div>
+      <i class="fa-solid fa-phone"></i>
+      <span>1234567890</span>
     </div>
   </div>
 
   <footer>
     <div class="footer-container">
-       
-        <div class="social-icons">
-            <a href="https://www.instagram.com/coepregatta/" target="_blank" class="icon ig">
-                <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-            <a href="https://www.youtube.com/@coepregatta4240" target="_blank" class="icon yt">
-                <ion-icon name="logo-youtube"></ion-icon>
-            </a>
-            <a href="https://www.linkedin.com/company/coepregatta/?originalSubdomain=in" target="_blank" class="icon li">
-                <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-        </div>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/coepregatta/" target="_blank" class="icon ig">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a>
+        <a href="https://www.youtube.com/@coepregatta4240" target="_blank" class="icon yt">
+          <ion-icon name="logo-youtube"></ion-icon>
+        </a>
+        <a href="https://www.linkedin.com/company/coepregatta/?originalSubdomain=in" target="_blank" class="icon li">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a>
+      </div>
     </div>
   </footer>
+
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
@@ -452,32 +449,53 @@ font-size: 2rem;color: rgb(253, 252, 250);font-family:Fira Sans;font-weight: bol
       lightboxImg.src = photos[currentIndex].src;
     });
 
+    // Close lightbox when clicking outside the image
     lightbox.addEventListener('click', (e) => {
       if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
         lightbox.style.display = 'none';
       }
     });
+
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (lightbox.style.display === 'block') {
+        if (e.key === 'ArrowLeft') {
+          currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+          lightboxImg.src = photos[currentIndex].src;
+        } else if (e.key === 'ArrowRight') {
+          currentIndex = (currentIndex + 1) % photos.length;
+          lightboxImg.src = photos[currentIndex].src;
+        } else if (e.key === 'Escape') {
+          lightbox.style.display = 'none';
+        }
+      }
+    });
+
+    // Check for touch events
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        // Swipe left - next image
+        currentIndex = (currentIndex + 1) % photos.length;
+        lightboxImg.src = photos[currentIndex].src;
+      } else if (touchEndX > touchStartX + swipeThreshold) {
+        // Swipe right - previous image
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        lightboxImg.src = photos[currentIndex].src;
+      }
+    }
   </script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="js/scripts.js"></script>
-  <script>
-      window.addEventListener('load', function () {
-          setTimeout(function () {
-              document.getElementById('loader').style.display = 'none';
-              document.getElementById('main-logo').classList.add('show-logo');
-          }, 2000);
-      });
-
-
-      $(window).scroll(function () {
-          if ($(document).scrollTop() > 50) {
-              $('.nav').addClass('affix');
-              console.log("OK");
-          } else {
-              $('.nav').removeClass('affix');
-          }
-      });
-  </script>
-
 </body>
 </html>

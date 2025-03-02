@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #091118;
+      color: #333;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      width: 100%;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-top: 20px;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .header p {
+      color: #666;
+      font-size: 1rem;
+    }
+    
+    .events-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .events-slider {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease;
+      touch-action: pan-y;
+    }
+    
+    .event-card {
+      flex: 0 0 100%;
+      min-width: 100%;
+      height: 70vh;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+    
+    .event-card.active {
+      transform: scale(1);
+    }
+    
+    .event-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+    
+    .event-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+      z-index: 2;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    
+    .event-card:nth-child(4) .event-overlay {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+    }
+    
+    .event-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease 0.1s;
+    }
+    
+    .event-card:nth-child(4) .event-title {
+      color: #000;
+    }
+    
+    .event-description {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #eee;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease 0.2s;
+    }
+    
+    .event-card:nth-child(4) .event-description {
+      color: #333;
+    }
+    
+    .event-btn {
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      align-self: flex-start;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.3s ease 0.3s;
+      box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+    }
+    
+    .event-card:nth-child(4) .event-btn {
+      background: linear-gradient(45deg, #fff, #f1f1f1);
+      color: #000;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .event-card.active .event-title,
+    .event-card.active .event-description,
+    .event-card.active .event-btn {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    
+    .navigation {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .nav-btn {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 10px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .nav-btn:hover {
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+      color: #fff;
+    }
+    
+    .nav-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #ddd;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .dot.active {
+      width: 25px;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #3498db, #8e44ad);
+    }
+    
+    @media (max-width: 768px) {
+      .event-card {
+        height: 60vh;
+      }
+      
+      .event-title {
+        font-size: 1.5rem;
+      }
+      
+      .event-description {
+        font-size: 0.8rem;
+      }
+    }
+    
+    /* Animation for page load */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .header {
+      animation: fadeIn 0.8s ease forwards;
+    }
+    
+    .events-container {
+      animation: fadeIn 0.8s ease 0.2s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    .nav-dots, .navigation {
+      animation: fadeIn 0.8s ease 0.4s forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Our Events</h1>
+      <p>Experience the magic of our signature performances</p>
+    </div>
+    
+    <div class="events-container">
+      <div class="events-slider">
+        <div class="event-card">
+          <div class="event-bg" style="background-image: url('./img/m2.jpg')"></div>
+          <div class="event-overlay">
+            <h2 class="event-title">"MASHAL DANCE"</h2>
+            <p class="event-description">As darkness ensues, a Mashaal of hope is lit, a still mirror of Mula river shines in their endless grit. We sway to the rhythm of their flames as they bring down the stars tonight.</p>
+            <a href="./mashal.html"><button class="event-btn">Read More</button></a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-bg" style="background-image: url('./img/t1.JPG')"></div>
+          <div class="event-overlay">
+            <h2 class="event-title">"TELEMATCHES"</h2>
+            <p class="event-description">The day fades out, the dusk sets in, but the show is not yet over, there's more to the evening, than what the swift boats did achieve. And now the thrill we uncover scunts braving flames and fumes watch their tryst with fate on water, through fire into the crepuscule sky this is Valour Incarnate.</p>
+            <a href="./tele.html"><button class="event-btn">Read More</button></a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-bg" style="background-image: url('./img/kb1.JPG')"></div>
+          <div class="event-overlay">
+            <h2 class="event-title">"KAYAK BALLET"</h2>
+            <p class="event-description">Speedily trimming the waves, Kayaks skim over the water with grace. With superior speed and agility, They glide through the murky rivers ablaze. It's the unflagging grit of the parade of kayak ballet.</p>
+            <a href="./kayaking.html"><button class="event-btn">Read More</button></a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-bg" style="background-image: url('./img/s5.png')"></div>
+          <div class="event-overlay">
+            <h2 class="event-title">"SHELL GAMES"</h2>
+            <p class="event-description">Majestic sculls and shells moving in synch, Crossing yards within a blink. There's no earthly way of knowing, Which direction they are going, For the rowers keep on rowing, And they're certainly not showing, Any signs that they are slowing! When we row, we row to win!</p>
+            <a href="./shell.html"><button class="event-btn">Read More</button></a>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-bg" style="background-image: url('./img/p3.png')"></div>
+          <div class="event-overlay">
+            <h2 class="event-title">"PUNT FORMATION"</h2>
+            <p class="event-description">Punt FormaSavour the tiny pearls of lights gliding softly in the night. Behold fresh faces in punt tranquil, as they limn messages of good will, Of god and men, Of dreams and emotions. Read the messages of light In the moonlight night</p>
+            <a href="./punt.html"><button class="event-btn">Read More</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="navigation">
+      <div class="nav-btn prev">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </div>
+      <div class="nav-btn next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </div>
+    </div>
+    
+    <div class="nav-dots">
+      <div class="dot active" data-index="0"></div>
+      <div class="dot" data-index="1"></div>
+      <div class="dot" data-index="2"></div>
+      <div class="dot" data-index="3"></div>
+      <div class="dot" data-index="4"></div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.querySelector('.events-slider');
+      const cards = document.querySelectorAll('.event-card');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      const dots = document.querySelectorAll('.dot');
+      
+      let currentIndex = 0;
+      const cardCount = cards.length;
+      
+      // Initialize
+      updateSlider();
+      
+      // Event listeners
+      prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+        updateSlider();
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % cardCount;
+        updateSlider();
+      });
+      
+      dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          currentIndex = parseInt(dot.getAttribute('data-index'));
+          updateSlider();
+        });
+      });
+      
+      // Touch events for mobile swipe
+      let touchstartX = 0;
+      let touchendX = 0;
+      
+      slider.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+      });
+      
+      slider.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+      
+      function handleSwipe() {
+        const threshold = 50; // Minimum distance required for swipe
+        if (touchendX < touchstartX - threshold) {
+          // Swipe left
+          currentIndex = (currentIndex + 1) % cardCount;
+          updateSlider();
+        } else if (touchendX > touchstartX + threshold) {
+          // Swipe right
+          currentIndex = (currentIndex - 1 + cardCount) % cardCount;
+          updateSlider();
+        }
+      }
+      
+      // Auto play
+      let intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % cardCount;
+        updateSlider();
+      }, 5000);
+      
+      document.querySelector('.events-container').addEventListener('mouseenter', () => {
+        clearInterval(intervalId);
+      });
+      
+      document.querySelector('.events-container').addEventListener('mouseleave', () => {
+        intervalId = setInterval(() => {
+          currentIndex = (currentIndex + 1) % cardCount;
+          updateSlider();
+        }, 5000);
+      });
+      
+      // Function to update slider
+      function updateSlider() {
+        // Update slider position
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update active card
+        cards.forEach((card, index) => {
+          if (index === currentIndex) {
+            card.classList.add('active');
+          } else {
+            card.classList.remove('active');
+          }
+        });
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
